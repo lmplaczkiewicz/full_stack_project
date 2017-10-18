@@ -12,14 +12,124 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <header class="mainPageHeader">
+        <h1 class='titleHead'>Location Management</h1>
+      </header>
+
+      <div class="overlayText">
+        <h1 class="overlayHead" id="overlayAlert">Create Account and Sign In for Database Access</h1>
+      </div>
+
+      <div class='container signBox'>
+        <button type="button" class="btn-default overlaySignButton" data-toggle="modal" data-target="#signUpModal">
+          Create Account
+        </button>
+      </div>
+
+      <div class='container signBox'>
+          <button type="button" class="btn-default overlaySignInButton" data-toggle="modal" data-target="#signInModal">
+            Sign In
+          </button>
+      </div>
+
+      <form class="credentialEntry" id="sign-up">
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="signUpModalLabel">Create Account</h3>
+              </div>
+              <div class="modal-body">
+                <h3 class="modalAccountHeader">Email</h3>
+                <input class='fillbox' type="text" name="credentials[email]" id="email" placeholder="Enter Email">
+                <h3 class="modalAccountHeader">Password</h3>
+                <input class='fillbox' type="password" name="credentials[password]" id="password" placeholder="Enter Password">
+                <h3 class="modalAccountHeader">Confirm Password</h3>
+                <input class='fillbox' type="password" name="credentials[password_confirmation]" id="passwordConfirm" placeholder="Confirm Password">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn-danger modalConfirmButton" id="signUpButton">Create Account</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+
+        <!-- Modal -->
+        <form class="credentialEntry" id="sign-in">
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="signInModalLabel">Account Sign-In</h3>
+              </div>
+              <div class="modal-body">
+                <h3 class="modalAccountHeader">Email</h3>
+                <input class='fillbox' type="text" name="credentials[email]" id="emailSignIn" placeholder="Enter Email">
+                <h3 class="modalAccountHeader">Password</h3>
+                <input class='fillbox' type="password" name="credentials[password]" id="passwordSignIn" placeholder="Enter Password">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn-danger modalConfirmButton" id="signInButton">Access Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+
+  <nav class="col-xs-12">
+        <!-- Button trigger modal -->
+
+    <form class='signOut' id="sign-out">
+      <div class="button">
+        <button type="submit" class="topRowButton btn-default" data-toggle="" data-target="">
+          Sign Out
+        </button>
+      </div>
+    </form>
+
+    <div class="button" id="changePasswordAccessButton">
+      <button type="button" class="topRowButton btn-default" data-toggle="modal" data-target="#changePasswordModal">
+        Change Password
+      </button>
+    </div>
+
+    <form class="credentialEntry" id="change-password">
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Change Password</h3>
+            </div>
+            <div class="modal-body">
+              <h3 class="modalAccountHeader">Old Password</h3>
+              <input class='fillbox' type="password" name="passwords[old]" id="passwordOld" placeholder="Enter Old Password">
+              <h3 class="modalAccountHeader">New Password</h3>
+              <input class='fillbox' type="password" name="passwords[new]" id="passwordNew" placeholder="Enter New Password">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn-danger modalConfirmButton" id="changePasswordButton">Change Password</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </nav>
+
+  <aside>
+  </aside>
+
+  <main>
+    <div class="content" id="contentDisplay">
+    </div>
+  </main>
+
+
+
     </body>
 </html>
