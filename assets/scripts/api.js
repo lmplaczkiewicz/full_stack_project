@@ -50,10 +50,22 @@ const show = function (playerId) {
   })
 }
 
+const find = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/locations/',
+    method: 'GET',
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   passwordChange,
-  show
+  show,
+  find
 }

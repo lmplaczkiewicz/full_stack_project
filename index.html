@@ -131,6 +131,32 @@
       </button>
     </div>
 
+    <div class="button" id="findLocationButton">
+      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#findLocationModal">
+        Find Location
+      </button>
+    </div>
+
+    <form class="dataAccess" id="findLocation">
+    <div class="modal fade" id="findLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="signInModalLabel">Find Location</h3>
+          </div>
+          <div class="modal-body">
+            <h3 class="modalAccountHeader">Location Id</h3>
+            <input class='fillbox' type="text" name="locations[Id]" id="addressFind" placeholder="Enter Id">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn-danger modalConfirmButton" id="findButton">Find Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
     <div class="button" id="addLocationButton">
       <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#addLocationModal">
         Add Location
@@ -158,17 +184,17 @@
                 </select>
               </div>
             <h3 class="modalAccountHeader">Units Insured</h3>
-            <input class='fillbox' type="password" name="locations[units]" id="unitAdd" placeholder="Enter Units Insured">
+            <input class='fillbox' type="text" name="locations[units]" id="unitAdd" placeholder="Enter Units Insured">
             <h3 class="modalAccountHeader">Company</h3>
-            <input class='fillbox' type="password" name="locations[company]" id="companyAdd" placeholder="Enter Company Name">
+            <input class='fillbox' type="text" name="locations[company]" id="companyAdd" placeholder="Enter Company Name">
             <h3 class="modalAccountHeader">Compliance Errors</h3>
-            <input class='fillbox' type="password" name="locations[compliance]" id="complianceAdd" placeholder="Enter Number of Compliance Errors">
+            <input class='fillbox' type="text" name="locations[compliance]" id="complianceAdd" placeholder="Enter Number of Compliance Errors">
             <h3 class="modalAccountHeader">Inspection Date</h3>
-            <input class='fillbox' type="password" name="locations[inspection]" id="inspectionAdd" placeholder="Enter Next Inspection Date">
+            <input class='fillbox' type="text" name="locations[inspection]" id="inspectionAdd" placeholder="Enter Next Inspection Date">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn-danger modalConfirmButton" id="signInButton">Create Location</button>
+            <button type="submit" class="btn-danger modalConfirmButton" id="createButton">Create Location</button>
           </div>
         </div>
       </div>
@@ -204,17 +230,17 @@
               </div>
             </div>
             <h3 class="modalAccountHeader">Units Insured</h3>
-            <input class='fillbox' type="password" name="locations[units]" id="unitUpdate" placeholder="Enter Units Insured">
+            <input class='fillbox' type="text" name="locations[units]" id="unitUpdate" placeholder="Enter Units Insured">
             <h3 class="modalAccountHeader">Company</h3>
-            <input class='fillbox' type="password" name="locations[company]" id="companyUpdate" placeholder="Enter Company Name">
+            <input class='fillbox' type="text" name="locations[company]" id="companyUpdate" placeholder="Enter Company Name">
             <h3 class="modalAccountHeader">Compliance Errors</h3>
-            <input class='fillbox' type="password" name="locations[compliance]" id="complianceUpdate" placeholder="Enter Number of Compliance Errors">
+            <input class='fillbox' type="text" name="locations[compliance]" id="complianceUpdate" placeholder="Enter Number of Compliance Errors">
             <h3 class="modalAccountHeader">Inspection Date</h3>
-            <input class='fillbox' type="password" name="locations[inspection]" id="inspectionUpdate" placeholder="Enter Next Inspection Date">
+            <input class='fillbox' type="text" name="locations[inspection]" id="inspectionUpdate" placeholder="Enter Next Inspection Date">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn-danger modalConfirmButton" id="signInButton">Update Location</button>
+            <button type="submit" class="btn-danger modalConfirmButton" id="updateButton">Update Location</button>
           </div>
         </div>
       </div>

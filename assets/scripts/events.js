@@ -36,13 +36,22 @@ const onPasswordChange = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-const getLocations = function () {
+const getLocations = function (event) {
   event.preventDefault()
-  console.log('are we hitting the event')
   // const userId = store.user.id
   api.show()
     .then(ui.getLocationsSuccess)
     .catch(ui.getLocationsFailure)
+}
+
+const findLocation = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
+  // const userId = store.user.id
+  api.find(data)
+    .then(ui.findLocationSuccess)
+    .catch(ui.findLocationFailure)
 }
 
 const addHandlers = function () {
@@ -51,6 +60,7 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onPasswordChange)
   $('#getLocationButton').on('click', getLocations)
+  $('#findLocation').on('submit', findLocation)
 }
 
 module.exports = {

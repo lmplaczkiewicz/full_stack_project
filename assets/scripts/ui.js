@@ -54,6 +54,15 @@ const getLocationsFailure = function () {
   $('#contentDisplay').text('Error')
 }
 
+const findLocationSuccess = function (data) {
+  const showLocationHtml = showLocationTemplate({ locations: data.locations })
+  $('.content').append(showLocationHtml)
+}
+
+const findLocationFailure = function () {
+  $('#contentDisplay').text('Error')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -64,5 +73,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   getLocationsSuccess,
-  getLocationsFailure
+  getLocationsFailure,
+  findLocationSuccess,
+  findLocationFailure
 }
