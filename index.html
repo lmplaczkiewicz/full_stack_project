@@ -125,6 +125,83 @@
   </nav>
 
   <aside>
+    <div class="button" id="addLocationButton">
+      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#addLocationModal">
+        Add Location
+      </button>
+    </div>
+
+    <form class="dataAccess" id="addLocation">
+    <div class="modal fade" id="addLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="signInModalLabel">Add Location</h3>
+          </div>
+          <div class="modal-body">
+            <h3 class="modalAccountHeader">Address</h3>
+            <input class='fillbox' type="text" name="locations[address]" id="addressAdd" placeholder="Enter Address">
+            <h3 class="modalAccountHeader">Business Type</h3>
+            <input class='fillbox' type="password" name="locations[business]" id="businessAdd" placeholder="Enter Business Type">
+            <h3 class="modalAccountHeader">Units Insured</h3>
+            <input class='fillbox' type="password" name="locations[units]" id="unitAdd" placeholder="Enter Units Insured">
+            <h3 class="modalAccountHeader">Company</h3>
+            <input class='fillbox' type="password" name="locations[company]" id="companyAdd" placeholder="Enter Company Name">
+            <h3 class="modalAccountHeader">Compliance Errors</h3>
+            <input class='fillbox' type="password" name="locations[compliance]" id="complianceAdd" placeholder="Enter Number of Compliance Errors">
+            <h3 class="modalAccountHeader">Inspection Date</h3>
+            <input class='fillbox' type="password" name="locations[inspection]" id="inspectionAdd" placeholder="Enter Next Inspection Date">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn-danger modalConfirmButton" id="signInButton">Create Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+    <div class="button" id="updateLocationButton">
+      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal">
+        Update Location
+      </button>
+    </div>
+
+    <form class="dataAccess" id="updateLocation">
+    <div class="modal fade" id="updateLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="signInModalLabel">Update Location</h3>
+          </div>
+          <div class="modal-body">
+            <h3 class="modalAccountHeader">Address</h3>
+            <input class='fillbox' type="text" name="locations[address]" id="addressUpdate" placeholder="Enter Address">
+            <h3 class="modalAccountHeader">Business Type</h3>
+            <input class='fillbox' type="password" name="locations[business]" id="businessUpdate" placeholder="Enter Business Type">
+            <h3 class="modalAccountHeader">Units Insured</h3>
+            <input class='fillbox' type="password" name="locations[units]" id="unitUpdate" placeholder="Enter Units Insured">
+            <h3 class="modalAccountHeader">Company</h3>
+            <input class='fillbox' type="password" name="locations[company]" id="companyUpdate" placeholder="Enter Company Name">
+            <h3 class="modalAccountHeader">Compliance Errors</h3>
+            <input class='fillbox' type="password" name="locations[compliance]" id="complianceUpdate" placeholder="Enter Number of Compliance Errors">
+            <h3 class="modalAccountHeader">Inspection Date</h3>
+            <input class='fillbox' type="password" name="locations[inspection]" id="inspectionUpdate" placeholder="Enter Next Inspection Date">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn-danger modalConfirmButton" id="signInButton">Update Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+    <div class="button" id="removeLocationButton">
+      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#removeLocationModal">
+        Delete Location
+      </button>
+    </div>
   </aside>
 
   <main>
