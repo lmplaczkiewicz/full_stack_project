@@ -3,6 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -35,11 +36,21 @@ const onPasswordChange = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const getLocations = function () {
+  event.preventDefault()
+  console.log('are we hitting the event')
+  // const userId = store.user.id
+  api.show()
+    .then(ui.getLocationsSuccess)
+    .catch(ui.getLocationsFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onPasswordChange)
+  $('#getLocationButton').on('click', getLocations)
 }
 
 module.exports = {

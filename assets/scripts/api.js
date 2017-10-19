@@ -40,9 +40,20 @@ const passwordChange = function (data) {
   })
 }
 
+const show = function (playerId) {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'GET'
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  passwordChange
+  passwordChange,
+  show
 }

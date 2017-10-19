@@ -3,6 +3,7 @@
 // clear form fields and reset overlay header on sign in.
 
 const store = require('./store')
+const showLocationTemplate = require('../template/location-listing.handlebars')
 
 const signUpSuccess = function (data) {
   $('#signUpModal').modal('hide')
@@ -44,6 +45,15 @@ const changePasswordFailure = function () {
   $('#change-password')[0].reset()
 }
 
+const getLocationsSuccess = function (data) {
+  const showLocationHtml = showLocationTemplate({ locations: data.locations })
+  $('.content').append(showLocationHtml)
+}
+
+const getLocationsFailure = function () {
+  $('#contentDisplay').text('Error')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -52,5 +62,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getLocationsSuccess,
+  getLocationsFailure
 }
