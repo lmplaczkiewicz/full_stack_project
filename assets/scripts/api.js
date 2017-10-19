@@ -43,10 +43,10 @@ const passwordChange = function (data) {
 const show = function (playerId) {
   return $.ajax({
     url: config.apiOrigin + '/locations',
-    method: 'GET'
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -54,9 +54,17 @@ const find = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/locations/',
     method: 'GET',
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const create = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'POST',
     data: data
   })
 }
@@ -67,5 +75,6 @@ module.exports = {
   signOut,
   passwordChange,
   show,
-  find
+  find,
+  create
 }

@@ -54,6 +54,15 @@ const findLocation = function (event) {
     .catch(ui.findLocationFailure)
 }
 
+const createLocation = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  // const userId = store.user.id
+  api.create(data)
+    .then(ui.createLocationSuccess)
+    .catch(ui.createLocationFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -61,6 +70,7 @@ const addHandlers = function () {
   $('#change-password').on('submit', onPasswordChange)
   $('#getLocationButton').on('click', getLocations)
   $('#findLocation').on('submit', findLocation)
+  $('#addLocation').on('submit', createLocation)
 }
 
 module.exports = {

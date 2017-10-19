@@ -172,10 +172,10 @@
           </div>
           <div class="modal-body">
             <h3 class="modalAccountHeader">Address</h3>
-            <input class='fillbox' type="text" name="locations[address]" id="addressAdd" placeholder="Enter Address">
+            <input class='fillbox' type="text" name="location[address]" id="addressAdd" placeholder="Enter Address">
               <div class="form-group">
                 <label for="exampleSelect1">Business Type</label>
-                <select class="form-control" id="exampleSelect1">
+                <select class="form-control" id="exampleSelect1" name="location[business]">
                   <option>Service</option>
                   <option>Merchandising</option>
                   <option>Manufacturing</option>
@@ -184,13 +184,13 @@
                 </select>
               </div>
             <h3 class="modalAccountHeader">Units Insured</h3>
-            <input class='fillbox' type="text" name="locations[units]" id="unitAdd" placeholder="Enter Units Insured">
+            <input class='fillbox' type="text" name="location[units]" id="unitAdd" placeholder="Enter Units Insured">
             <h3 class="modalAccountHeader">Company</h3>
-            <input class='fillbox' type="text" name="locations[company]" id="companyAdd" placeholder="Enter Company Name">
+            <input class='fillbox' type="text" name="location[company]" id="companyAdd" placeholder="Enter Company Name">
             <h3 class="modalAccountHeader">Compliance Errors</h3>
-            <input class='fillbox' type="text" name="locations[compliance]" id="complianceAdd" placeholder="Enter Number of Compliance Errors">
+            <input class='fillbox' type="text" name="location[compliance]" id="complianceAdd" placeholder="Enter Number of Compliance Errors">
             <h3 class="modalAccountHeader">Inspection Date</h3>
-            <input class='fillbox' type="text" name="locations[inspection]" id="inspectionAdd" placeholder="Enter Next Inspection Date">
+            <input class='fillbox' type="text" name="location[inspection]" id="inspectionAdd" placeholder="Enter Next Inspection Date">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
