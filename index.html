@@ -125,6 +125,12 @@
   </nav>
 
   <aside>
+    <div class="button" id="getLocationButton">
+      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="">
+        Get Locations
+      </button>
+    </div>
+
     <div class="button" id="addLocationButton">
       <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#addLocationModal">
         Add Location
@@ -141,8 +147,16 @@
           <div class="modal-body">
             <h3 class="modalAccountHeader">Address</h3>
             <input class='fillbox' type="text" name="locations[address]" id="addressAdd" placeholder="Enter Address">
-            <h3 class="modalAccountHeader">Business Type</h3>
-            <input class='fillbox' type="password" name="locations[business]" id="businessAdd" placeholder="Enter Business Type">
+              <div class="form-group">
+                <label for="exampleSelect1">Business Type</label>
+                <select class="form-control" id="exampleSelect1">
+                  <option>Service</option>
+                  <option>Merchandising</option>
+                  <option>Manufacturing</option>
+                  <option>Hybrid</option>
+                  <option>Other</option>
+                </select>
+              </div>
             <h3 class="modalAccountHeader">Units Insured</h3>
             <input class='fillbox' type="password" name="locations[units]" id="unitAdd" placeholder="Enter Units Insured">
             <h3 class="modalAccountHeader">Company</h3>
@@ -177,8 +191,18 @@
           <div class="modal-body">
             <h3 class="modalAccountHeader">Address</h3>
             <input class='fillbox' type="text" name="locations[address]" id="addressUpdate" placeholder="Enter Address">
-            <h3 class="modalAccountHeader">Business Type</h3>
-            <input class='fillbox' type="password" name="locations[business]" id="businessUpdate" placeholder="Enter Business Type">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Business Type
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Service</a>
+                <a class="dropdown-item" href="#">Merchandising</a>
+                <a class="dropdown-item" href="#">Manufacturing</a>
+                <a class="dropdown-item" href="#">Hybrid</a>
+                <a class="dropdown-item" href="#">Other</a>
+              </div>
+            </div>
             <h3 class="modalAccountHeader">Units Insured</h3>
             <input class='fillbox' type="password" name="locations[units]" id="unitUpdate" placeholder="Enter Units Insured">
             <h3 class="modalAccountHeader">Company</h3>
