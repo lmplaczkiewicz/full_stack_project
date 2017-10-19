@@ -36,11 +36,24 @@ const onPasswordChange = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const deleteLocation = function (event) {
+  event.preventDefault()
+  console.log('event.target is', event.target.parentNode.parentNode)
+  const locationId = event.target.parentNode.parentNode.getAttribute('data-id')
+  console.log("We're about to delete book with id: ", locationId)
+  api.removeLocation(locationId)
+    // .then(ui.findLocationSuccess)
+    // .catch(ui.findLocationFailure)
+}
+
 const getLocations = function (event) {
   event.preventDefault()
   // const userId = store.user.id
   api.show()
     .then(ui.getLocationsSuccess)
+    .then(function () {
+      $('.removeButton').on('click', deleteLocation)
+    })
     .catch(ui.getLocationsFailure)
 }
 
@@ -74,9 +87,5 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers,
-  onSignUp,
-  onSignIn,
-  onSignOut,
-  onPasswordChange
+  addHandlers
 }

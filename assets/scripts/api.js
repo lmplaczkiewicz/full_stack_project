@@ -69,6 +69,16 @@ const create = function (data) {
   })
 }
 
+const removeLocation = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/locations/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -76,5 +86,6 @@ module.exports = {
   passwordChange,
   show,
   find,
-  create
+  create,
+  removeLocation
 }
