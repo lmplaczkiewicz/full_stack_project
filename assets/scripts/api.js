@@ -79,8 +79,12 @@ const removeLocation = function (data) {
 }
 
 const updateLocation = function (locationId, data) {
+  console.log('Below is locationId')
+  console.log(locationId)
+  console.log('Below is data')
+  console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + data,
+    url: config.apiOrigin + '/locations/' + locationId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

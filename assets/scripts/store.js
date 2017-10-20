@@ -6,11 +6,11 @@ const user = {
 const locations = {
 }
 
-const location = {
+const locationId = {
 }
 
 module.exports = {
   user,
   locations,
-  location
+  locationId
 }

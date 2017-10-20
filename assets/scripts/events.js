@@ -55,10 +55,21 @@ const deleteLocation = function (event) {
 
 const updateLocation = function (event) {
   event.preventDefault()
-  console.log('We\'re in update location')
-  console.log('event.target is', event.target.parentNode.parentNode)
-  const locationId = event.target.parentNode.parentNode.getAttribute('data-id')
-  console.log("We're about to update book with id: ", locationId)
+  const locationDataId = store.locationId
+  const data = getFormFields(event.target)
+  console.log('This is below')
+  console.log(this)
+  console.log('Event target is below')
+  console.log(event.target)
+  console.log(event)
+  api.updateLocation(locationDataId, data)
+    .then(console.log('success'))
+    .catch(console.log('Failure'))
+}
+
+const getLocationId = function (event) {
+  event.preventDefault()
+  store.locationId = parseInt(event.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
 }
 
 const getLocations = function (event) {
@@ -71,7 +82,10 @@ const getLocations = function (event) {
       $('.removeButton').on('click', deleteLocation)
     })
     .then(function () {
-      $('.updateButton').on('submit', updateLocation, console.log('submit handler'))
+      $('.updateButton').on('submit', getLocationId)
+    })
+    .then(function () {
+      $('.updateButton').on('submit', updateLocation)
     })
     .catch(ui.getLocationsFailure)
 }
@@ -114,7 +128,6 @@ const addHandlers = function () {
   $('#getLocationButton').on('click', getLocations)
   $('#findLocation').on('submit', findLocation)
   $('#addLocation').on('submit', createLocation)
-  // $('.updateButton').on('submit', updateLocation)
 }
 
 module.exports = {
