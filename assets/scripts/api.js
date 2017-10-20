@@ -51,13 +51,13 @@ const show = function (playerId) {
 }
 
 const find = function (data) {
+  console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/locations/',
+    url: config.apiOrigin + '/locations/' + data,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: data
+    }
   })
 }
 

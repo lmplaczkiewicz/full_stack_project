@@ -62,6 +62,7 @@ const getLocationsFailure = function () {
 const findLocationSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('.content').append(showLocationHtml)
+  console.log('This is data' + data)
 }
 
 const findLocationFailure = function () {

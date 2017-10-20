@@ -49,8 +49,8 @@ const deleteLocation = function (event) {
   const locationId = event.target.parentNode.parentNode.getAttribute('data-id')
   console.log("We're about to delete book with id: ", locationId)
   api.removeLocation(locationId)
-    // .then(ui.findLocationSuccess)
-    // .catch(ui.findLocationFailure)
+  // .then(ui.findLocationSuccess)
+  // .catch(ui.findLocationFailure)
 }
 
 const getLocations = function (event) {
@@ -65,14 +65,28 @@ const getLocations = function (event) {
     .catch(ui.getLocationsFailure)
 }
 
+const singleLocation = function (data) {
+  for (let i = 0; i < store.locations.length; i++) {
+    if (parseInt(store.locations[i].id) === parseInt(data)) {
+      return data
+    } else {
+      console.log(store.locations[i].id)
+      console.log('Error')
+    }
+  }
+}
+
 const findLocation = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  console.log(data)
+  const findData = getFormFields(event.target)
+  console.log(findData.Id)
+  console.log(findData.locations.Id)
+  const locationId = singleLocation(findData.locations.Id)
   // const userId = store.user.id
-  api.find(data)
-    // .then(ui.findLocationSuccess)
-    // .catch(ui.findLocationFailure)
+  console.log('This is locationId', locationId)
+  api.find(locationId)
+    .then(ui.findLocationSuccess)
+    .catch(ui.findLocationFailure)
 }
 
 const createLocation = function (event) {

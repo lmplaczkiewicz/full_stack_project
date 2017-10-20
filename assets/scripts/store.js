@@ -6,7 +6,11 @@ const user = {
 const locations = {
 }
 
+const location = {
+}
+
 module.exports = {
   user,
-  locations
+  locations,
+  location
 }
