@@ -15,11 +15,11 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
+  store.user = data.user
   $('#signInModal').modal('hide')
   $('#sign-in')[0].reset()
   $('#underlay').show()
   $('#overlay').hide()
-  store.user = data.user
 }
 
 const signInFailure = function () {
@@ -48,6 +48,11 @@ const changePasswordFailure = function () {
 const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('.content').append(showLocationHtml)
+  console.log(data)
+  console.log(data.locations)
+  console.log(data.locations[0])
+  store.locations = data.locations
+  console.log(store.locations)
 }
 
 const getLocationsFailure = function () {
@@ -63,6 +68,16 @@ const findLocationFailure = function () {
   $('#contentDisplay').text('Error')
 }
 
+const getLocationsDataSuccess = function (data) {
+  console.log('We got data?')
+  store.locations = data.locations
+  console.log(store.locations)
+}
+
+const getLocationsDataFailure = function () {
+  console.log('We don\'t have data')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -75,5 +90,7 @@ module.exports = {
   getLocationsSuccess,
   getLocationsFailure,
   findLocationSuccess,
-  findLocationFailure
+  findLocationFailure,
+  getLocationsDataSuccess,
+  getLocationsDataFailure
 }

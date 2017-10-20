@@ -5,6 +5,12 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
 
+const getLocationsData = function () {
+  api.show()
+    .then(ui.getLocationsDataSuccess)
+    .catch(ui.getLocationsDataFailure)
+}
+
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -18,6 +24,7 @@ const onSignIn = function (event) {
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(getLocationsData())
     .catch(ui.signInFailure)
 }
 
@@ -51,6 +58,7 @@ const getLocations = function (event) {
   // const userId = store.user.id
   api.show()
     .then(ui.getLocationsSuccess)
+    // Enables delete button function after loading of content, probably keep it on find location as well.
     .then(function () {
       $('.removeButton').on('click', deleteLocation)
     })
@@ -63,8 +71,8 @@ const findLocation = function (event) {
   console.log(data)
   // const userId = store.user.id
   api.find(data)
-    .then(ui.findLocationSuccess)
-    .catch(ui.findLocationFailure)
+    // .then(ui.findLocationSuccess)
+    // .catch(ui.findLocationFailure)
 }
 
 const createLocation = function (event) {
@@ -84,6 +92,7 @@ const addHandlers = function () {
   $('#getLocationButton').on('click', getLocations)
   $('#findLocation').on('submit', findLocation)
   $('#addLocation').on('submit', createLocation)
+  // $('#updateLocation').on('submit', updateLocation)
 }
 
 module.exports = {

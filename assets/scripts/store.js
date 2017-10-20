@@ -1,12 +1,12 @@
 'use strict'
 
-const store = {
+const user = {
 }
 
 const locations = {
 }
 
 module.exports = {
-  store,
+  user,
   locations
 }
