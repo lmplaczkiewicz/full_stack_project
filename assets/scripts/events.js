@@ -57,11 +57,6 @@ const updateLocation = function (event) {
   event.preventDefault()
   const locationDataId = store.locationId
   const data = getFormFields(event.target)
-  console.log('This is below')
-  console.log(this)
-  console.log('Event target is below')
-  console.log(event.target)
-  console.log(event)
   api.updateLocation(locationDataId, data)
     .then(console.log('success'))
     .catch(console.log('Failure'))
@@ -70,6 +65,7 @@ const updateLocation = function (event) {
 const getLocationId = function (event) {
   event.preventDefault()
   store.locationId = parseInt(event.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
+  console.log(store.locationId)
 }
 
 const getLocations = function (event) {
