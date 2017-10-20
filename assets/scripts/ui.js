@@ -78,6 +78,15 @@ const getLocationsDataFailure = function () {
   console.log('We don\'t have data')
 }
 
+const updateLocationSuccess = function (data) {
+  console.log('This is update success')
+  console.log(data)
+}
+
+const updateLocationFailure = function () {
+  console.log('This is update failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -92,5 +101,7 @@ module.exports = {
   findLocationSuccess,
   findLocationFailure,
   getLocationsDataSuccess,
-  getLocationsDataFailure
+  getLocationsDataFailure,
+  updateLocationSuccess,
+  updateLocationFailure
 }

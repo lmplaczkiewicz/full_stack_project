@@ -53,14 +53,25 @@ const deleteLocation = function (event) {
   // .catch(ui.findLocationFailure)
 }
 
+const updateLocation = function (event) {
+  event.preventDefault()
+  console.log('We\'re in update location')
+  console.log('event.target is', event.target.parentNode.parentNode)
+  const locationId = event.target.parentNode.parentNode.getAttribute('data-id')
+  console.log("We're about to update book with id: ", locationId)
+}
+
 const getLocations = function (event) {
   event.preventDefault()
   // const userId = store.user.id
   api.show()
     .then(ui.getLocationsSuccess)
-    // Enables delete button function after loading of content, probably keep it on find location as well.
+    // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
     .then(function () {
       $('.removeButton').on('click', deleteLocation)
+    })
+    .then(function () {
+      $('.updateButton').on('submit', updateLocation, console.log('submit handler'))
     })
     .catch(ui.getLocationsFailure)
 }
@@ -103,7 +114,7 @@ const addHandlers = function () {
   $('#getLocationButton').on('click', getLocations)
   $('#findLocation').on('submit', findLocation)
   $('#addLocation').on('submit', createLocation)
-  // $('#updateLocation').on('submit', updateLocation)
+  // $('.updateButton').on('submit', updateLocation)
 }
 
 module.exports = {

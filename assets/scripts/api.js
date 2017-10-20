@@ -78,6 +78,17 @@ const removeLocation = function (data) {
   })
 }
 
+const updateLocation = function (locationId, data) {
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + data,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -86,5 +97,6 @@ module.exports = {
   show,
   find,
   create,
-  removeLocation
+  removeLocation,
+  updateLocation
 }
