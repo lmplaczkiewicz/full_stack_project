@@ -79,11 +79,8 @@ const singleLocation = function (data) {
 const findLocation = function (event) {
   event.preventDefault()
   const findData = getFormFields(event.target)
-  console.log(findData.Id)
-  console.log(findData.locations.Id)
   const locationId = singleLocation(findData.locations.Id)
   // const userId = store.user.id
-  console.log('This is locationId', locationId)
   api.find(locationId)
     .then(ui.findLocationSuccess)
     .catch(ui.findLocationFailure)

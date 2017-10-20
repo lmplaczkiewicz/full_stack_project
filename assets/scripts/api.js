@@ -51,7 +51,6 @@ const show = function (playerId) {
 }
 
 const find = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/locations/' + data,
     method: 'GET',
