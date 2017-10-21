@@ -9,13 +9,13 @@
   <li><h2> <small>Company: {{location.company}}</small></h2></li>
   <li><h2> <small>Compliance Errors: {{location.compliance}}</small></h2></li>
   <li><h2> <small>Inspection Date: {{location.inspection}}</small></h2></li>
-  <li><button class="removeButton btn btn-default">Remove Location</button></li>
-  <li><div class="updateButton" id="updateHandleButton">
-    <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal">
+  <li><button data-id="{{location.id}}" class="removeButton btn btn-default">Remove Location</button></li>
+  <li><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton">
+    <button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">
       Update Location
     </button>
-    <form class="dataAccess" id="updateLocation">
-    <div class="modal fade" id="updateLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
+    <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -65,7 +65,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn-danger updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
+            <button data-id="{{location.id}}" type="submit" class="btn-danger updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
           </div>
         </div>
       </div>

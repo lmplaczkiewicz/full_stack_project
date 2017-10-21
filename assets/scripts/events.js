@@ -45,8 +45,7 @@ const onPasswordChange = function (event) {
 
 const deleteLocation = function (event) {
   event.preventDefault()
-  console.log('event.target is', event.target.parentNode.parentNode)
-  const locationId = event.target.parentNode.parentNode.getAttribute('data-id')
+  const locationId = event.target.getAttribute('data-id')
   console.log("We're about to delete book with id: ", locationId)
   api.removeLocation(locationId)
   // .then(ui.findLocationSuccess)
@@ -55,17 +54,14 @@ const deleteLocation = function (event) {
 
 const updateLocation = function (event) {
   event.preventDefault()
-  const locationDataId = store.locationId
+  const locationId = event.target.getAttribute('data-id')
   const data = getFormFields(event.target)
-  api.updateLocation(locationDataId, data)
-    .then(console.log('success'))
-    .catch(console.log('Failure'))
-}
-
-const getLocationId = function (event) {
-  event.preventDefault()
-  store.locationId = parseInt(event.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
-  console.log(store.locationId)
+  console.log(event.target)
+  console.log("We're about to update book with id: ", locationId)
+  console.log(data)
+  api.updateLocation(locationId, data)
+    .then(ui.updateLocationSuccess)
+    .catch(ui.updateLocationFailure)
 }
 
 const getLocations = function (event) {
@@ -76,9 +72,6 @@ const getLocations = function (event) {
     // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
     .then(function () {
       $('.removeButton').on('click', deleteLocation)
-    })
-    .then(function () {
-      $('.updateButton').on('submit', getLocationId)
     })
     .then(function () {
       $('.updateButton').on('submit', updateLocation)
