@@ -4,6 +4,7 @@
 
 const store = require('./store')
 const showLocationTemplate = require('../template/location-listing.handlebars')
+const api = require('./api')
 
 const signUpSuccess = function (data) {
   $('#signUpModal').modal('hide')
