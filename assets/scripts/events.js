@@ -47,9 +47,9 @@ const deleteLocation = function (event) {
   event.preventDefault()
   const locationId = event.target.getAttribute('data-id')
   console.log("We're about to delete book with id: ", locationId)
-  api.removeLocation(locationId)
-    .then(ui.deleteLocationSuccess)
-    .catch(ui.deleteLocationFailure)
+  // api.removeLocation(locationId)
+  //   .then(ui.deleteLocationSuccess)
+  //   .catch(ui.deleteLocationFailure)
 }
 
 const updateLocation = function (event) {

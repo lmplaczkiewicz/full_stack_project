@@ -53,8 +53,6 @@ const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('#contentDisplay').html(showLocationHtml)
   store.locations = data.locations
-  $('#findLocationModal').modal('hide')
-  $('#findLocation')[0].reset()
 }
 
 const getLocationsFailure = function () {
@@ -65,6 +63,8 @@ const findLocationSuccess = function (data) {
   $('#contentDisplay').empty()
   const showLocationHtml = showLocationTemplate({ locations: data })
   $('.content').html(showLocationHtml)
+  $('#findLocationModal').modal('hide')
+  $('#findLocation')[0].reset()
 }
 
 const findLocationFailure = function () {
@@ -82,12 +82,11 @@ const getLocationsDataFailure = function () {
 }
 
 const updateLocationSuccess = function (data) {
-  $('#contentDisplay').empty()
-  $('#userDisplay').text('Location Updated')
-  const showLocationHtml = showLocationTemplate({ locations: data.locations })
-  $('#contentDisplay').html(showLocationHtml)
-  store.locations = data.locations
-  console.log(store.locations)
+  // $('#contentDisplay').empty()
+  // $('#userDisplay').text('Location Updated')
+  // const showLocationHtml = showLocationTemplate({ locations: data.locations })
+  // $('#contentDisplay').html(showLocationHtml)
+  // store.locations = data.locations
 }
 
 const updateLocationFailure = function () {
