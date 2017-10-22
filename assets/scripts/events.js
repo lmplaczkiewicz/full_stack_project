@@ -48,20 +48,8 @@ const deleteLocation = function (event) {
   const locationId = event.target.getAttribute('data-id')
   console.log("We're about to delete book with id: ", locationId)
   api.removeLocation(locationId)
-  // .then(ui.findLocationSuccess)
-  // .catch(ui.findLocationFailure)
-}
-
-const updateLocation = function (event) {
-  event.preventDefault()
-  const locationId = event.target.getAttribute('data-id')
-  const data = getFormFields(event.target)
-  console.log(event.target)
-  console.log("We're about to update book with id: ", locationId)
-  console.log(data)
-  api.updateLocation(locationId, data)
-    .then(ui.updateLocationSuccess)
-    .catch(ui.updateLocationFailure)
+    .then(ui.deleteLocationSuccess)
+    .catch(ui.deleteLocationFailure)
 }
 
 const getLocations = function (event) {
@@ -77,6 +65,16 @@ const getLocations = function (event) {
       $('.updateButton').on('submit', updateLocation)
     })
     .catch(ui.getLocationsFailure)
+}
+
+const updateLocation = function (event) {
+  event.preventDefault()
+  const locationId = event.target.getAttribute('data-id')
+  const data = getFormFields(event.target)
+  api.updateLocation(locationId, data)
+    .then(ui.updateLocationSuccess)
+    .then(getLocationsData)
+    .catch(ui.updateLocationFailure)
 }
 
 const singleLocation = function (data) {
