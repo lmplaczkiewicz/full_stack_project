@@ -48,17 +48,14 @@ const deleteLocation = function (event) {
   const locationId = event.target.getAttribute('data-id')
   console.log("We're about to delete book with id: ", locationId)
   api.removeLocation(locationId)
-  // .then(ui.findLocationSuccess)
-  // .catch(ui.findLocationFailure)
+    .then(ui.deleteLocationSuccess)
+    .catch(ui.deleteLocationFailure)
 }
 
 const updateLocation = function (event) {
   event.preventDefault()
   const locationId = event.target.getAttribute('data-id')
   const data = getFormFields(event.target)
-  console.log(event.target)
-  console.log("We're about to update book with id: ", locationId)
-  console.log(data)
   api.updateLocation(locationId, data)
     .then(ui.updateLocationSuccess)
     .catch(ui.updateLocationFailure)

@@ -12,6 +12,7 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function () {
   $('#sign-up')[0].reset()
+  $('#overlayAlert').text('Unable to sign out')
 }
 
 const signInSuccess = function (data) {
@@ -24,16 +25,18 @@ const signInSuccess = function (data) {
 
 const signInFailure = function () {
   $('#sign-in')[0].reset()
+  $('#overlayAlert').text('Unable to sign in')
 }
 
 const signOutSuccess = function () {
   $('#underlay').hide()
   $('#overlay').show()
+  $('#contentDisplay').empty()
   store.user = null
 }
 
 const signOutFailure = function () {
-  $('#result').text('SIGN OUT FAILURE')
+  $('#userDisplay').text('Unable to sign out')
 }
 
 const changePasswordSuccess = function (data) {
@@ -43,48 +46,52 @@ const changePasswordSuccess = function (data) {
 
 const changePasswordFailure = function () {
   $('#change-password')[0].reset()
+  $('#userDisplay').text('Unable to change password')
 }
 
 const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
-  $('.content').append(showLocationHtml)
-  console.log(data)
-  console.log(data.locations)
-  console.log(data.locations[0])
+  $('#contentDisplay').html(showLocationHtml)
   store.locations = data.locations
-  console.log(store.locations)
+  $('#findLocationModal').modal('hide')
+  $('#findLocation')[0].reset()
 }
 
 const getLocationsFailure = function () {
-  $('#contentDisplay').text('Error')
+  $('#userDisplay').text('Unable to find locations')
 }
 
 const findLocationSuccess = function (data) {
+  $('#contentDisplay').empty()
   const showLocationHtml = showLocationTemplate({ locations: data })
-  $('.content').append(showLocationHtml)
+  $('.content').html(showLocationHtml)
 }
 
 const findLocationFailure = function () {
-  $('#contentDisplay').text('Error')
+  $('#userDisplay').text('Unable to find location')
 }
 
 const getLocationsDataSuccess = function (data) {
-  console.log('We got data?')
+  const showLocationHtml = showLocationTemplate({ locations: data.locations })
+  $('#contentDisplay').html(showLocationHtml)
+  store.locations = data.locations
+}
+
+const getLocationsDataFailure = function () {
+  $('#userDisplay').text('Unable to find user locations')
+}
+
+const updateLocationSuccess = function (data) {
+  $('#contentDisplay').empty()
+  $('#userDisplay').text('Location Updated')
+  const showLocationHtml = showLocationTemplate({ locations: data.locations })
+  $('#contentDisplay').html(showLocationHtml)
   store.locations = data.locations
   console.log(store.locations)
 }
 
-const getLocationsDataFailure = function () {
-  console.log('We don\'t have data')
-}
-
-const updateLocationSuccess = function (data) {
-  console.log('This is update success')
-  console.log(data)
-}
-
 const updateLocationFailure = function () {
-  console.log('This is update failure')
+  $('#userDisplay').text('Location update failure')
 }
 
 module.exports = {
