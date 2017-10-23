@@ -9,7 +9,67 @@
           <th scope="col">Business Type</th>
           <th scope="col">Inspection Date</th>
           <th scope="col">Compliance Errors</th>
-          <th scope="col"><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button></div></th>
+          <th scope="col"><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button>
+            <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
+            <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content handlebarModal">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="signInModalLabel">Update Location</h3>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="location[address]" id="addressUpdate" value="{{location.address}}">
+                    </div>
+
+                    <!-- <div class="form-group">
+                    <label>Business Type</label>
+                    <input type="text" class="form-control" name="location[business]" id="businessUpdate" placeholder="Enter Business Type">
+                    </div> -->
+                    <div class="form-group">
+                      <label for="exampleSelect1">Business Type</label>
+                      <select class="form-control" id="exampleSelect1" name="location[business]">
+                        <option>Service</option>
+                        <option>Merchandising</option>
+                        <option>Manufacturing</option>
+                        <option>Hybrid</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Units Insured</label>
+                    <input type="text" class="form-control" name="location[units]" id="unitUpdate" value="{{location.units}}">
+                    </div>
+
+                    <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" class="form-control" name="location[company]" id="companyUpdate" value="{{location.company}}">
+                    </div>
+
+                    <div class="form-group">
+                    <label>Compliance Errors</label>
+                    <input type="text" class="form-control" name="location[compliance]" id="complianceUpdate" value="{{location.compliance}}">
+                    </div>
+
+                    <div class="form-group">
+                    <label>Inspection Date</label>
+                    <input type="date" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}">
+                    </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+                    <button data-id="{{location.id}}" type="submit" class="btn-primary updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </th>
         </tr>
       </thead>
       <tbody>
@@ -22,65 +82,6 @@
           <td scope="col"><button data-id="{{location.id}}" class="removeButton btn btn-default">Remove Location</button></td>
         </tr>
       </tbody>
-
-      <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
-      <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content handlebarModal">
-            <div class="modal-header">
-              <h3 class="modal-title" id="signInModalLabel">Update Location</h3>
-            </div>
-            <div class="modal-body">
-
-              <div class="form-group">
-              <label>Address</label>
-              <input type="text" class="form-control" name="location[address]" id="addressUpdate" value="{{location.address}}">
-              </div>
-
-              <!-- <div class="form-group">
-              <label>Business Type</label>
-              <input type="text" class="form-control" name="location[business]" id="businessUpdate" placeholder="Enter Business Type">
-              </div> -->
-              <div class="form-group">
-                <label for="exampleSelect1">Business Type</label>
-                <select class="form-control" id="exampleSelect1" name="location[business]">
-                  <option>Service</option>
-                  <option>Merchandising</option>
-                  <option>Manufacturing</option>
-                  <option>Hybrid</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-              <label>Units Insured</label>
-              <input type="text" class="form-control" name="location[units]" id="unitUpdate" value="{{location.units}}">
-              </div>
-
-              <div class="form-group">
-              <label>Company</label>
-              <input type="text" class="form-control" name="location[company]" id="companyUpdate" value="{{location.company}}">
-              </div>
-
-              <div class="form-group">
-              <label>Compliance Errors</label>
-              <input type="text" class="form-control" name="location[compliance]" id="complianceUpdate" value="{{location.compliance}}">
-              </div>
-
-              <div class="form-group">
-              <label>Inspection Date</label>
-              <input type="date" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}">
-              </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
-              <button data-id="{{location.id}}" type="submit" class="btn-primary updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
   </table>
 
 
