@@ -22,16 +22,6 @@ const getLocationsData = function () {
     .catch(getLocationsDataFailure)
 }
 
-const signInSuccess = function (data) {
-  store.user = data.user
-  console.log(store.user)
-  $('#signInModal').modal('hide')
-  $('#sign-in')[0].reset()
-  $('#underlay').show()
-  $('#overlay').hide()
-  getLocationsData()
-}
-
 const signInFailure = function () {
   $('#sign-in')[0].reset()
   $('#overlayAlert').text('Unable to sign in')
@@ -113,6 +103,17 @@ const createLocationSuccess = function () {
 
 const createLocationFailure = function () {
   console.log('This is a create failure')
+}
+
+const signInSuccess = function (data) {
+  store.user = data.user
+  console.log(store.user)
+  $('#signInModal').modal('hide')
+  $('#sign-in')[0].reset()
+  $('#underlay').show()
+  $('#overlay').hide()
+  getLocationsData()
+  return data
 }
 
 module.exports = {

@@ -13,14 +13,6 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
-}
-
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
@@ -36,36 +28,61 @@ const onPasswordChange = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-const deleteLocation = function (event) {
-  event.preventDefault()
-  const locationId = event.target.getAttribute('data-id')
-  console.log("We're about to delete book with id: ", locationId)
-  api.removeLocation(locationId)
-    .then(ui.deleteLocationSuccess)
-    .catch(ui.deleteLocationFailure)
-}
-
 const getLocations = function (event) {
   event.preventDefault()
   // const userId = store.user.id
   api.show()
     .then(ui.getLocationsSuccess)
     // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
+    .catch(ui.getLocationsFailure)
     .then(function () {
       $('.removeButton').on('click', deleteLocation)
     })
     .then(function () {
       $('.updateButton').on('submit', updateLocation)
     })
+}
+
+const getLocationsNoButton = function (event) {
+  api.show()
+    .then(ui.getLocationsSuccess)
+    // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
     .catch(ui.getLocationsFailure)
+    .then(function () {
+      $('.removeButton').on('click', deleteLocation)
+    })
+    .then(function () {
+      $('.updateButton').on('submit', updateLocation)
+    })
+}
+
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .then(getLocationsNoButton)
+    .catch(ui.signInFailure)
+}
+
+const deleteLocation = function (event) {
+  event.preventDefault()
+  const locationId = event.target.getAttribute('data-id')
+  console.log("We're about to delete book with id: ", locationId)
+  api.removeLocation(locationId)
+    .then(ui.deleteLocationSuccess)
+    .then(getLocationsNoButton)
+    .catch(ui.deleteLocationFailure)
 }
 
 const updateLocation = function (event) {
   event.preventDefault()
   const locationId = event.target.getAttribute('data-id')
   const data = getFormFields(event.target)
+  console.log('We got to update location')
   api.updateLocation(locationId, data)
     .then(ui.updateLocationSuccess)
+    .then(getLocationsNoButton)
     .catch(ui.updateLocationFailure)
 }
 
@@ -96,6 +113,7 @@ const createLocation = function (event) {
   // const userId = store.user.id
   api.create(data)
     .then(ui.createLocationSuccess)
+    .then(getLocationsNoButton)
     .catch(ui.createLocationFailure)
 }
 
