@@ -17,7 +17,7 @@
     <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
     <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content handlebarModal">
           <div class="modal-header">
             <h3 class="modal-title" id="signInModalLabel">Update Location</h3>
           </div>
@@ -60,12 +60,12 @@
 
             <div class="form-group">
             <label>Inspection Date</label>
-            <input type="text" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}">
+            <input type="date" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}">
             </div>
 
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
-            <button data-id="{{location.id}}" type="submit" class="btn-danger updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
+            <button data-id="{{location.id}}" type="submit" class="btn-primary updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
           </div>
         </div>
       </div>
