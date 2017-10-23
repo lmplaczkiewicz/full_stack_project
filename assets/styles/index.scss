@@ -51,6 +51,9 @@ nav {
 
 .topRowButton {
   float: left;
+  color: black;
+  border: solid;
+  background-color: cyan;
 }
 
 .topRowButton:hover,
@@ -61,8 +64,13 @@ inset 0 -3.25em 0 0 var(--hover);
  }
 
  .frontButton {
+   color: black;
    height: 48px;
    width: 400px;
+   border: solid;
+   padding: 15px;
+   box-shadow: 10px 10px;
+   background-color: cyan;
  }
 
  .frontButton:hover,
@@ -91,7 +99,7 @@ $colors: (
 @each $button, $color in $colors {
   .#{$button} {
     --color: $color;
-    --hover: adjust-hue($color, 45deg);
+    // --hover: adjust-hue($color, 5deg);
   }
 }
 
@@ -103,7 +111,7 @@ button {
   &:hover,
   &:focus {
     border-color: var(--hover);
-    color: #fff;
+    color: black;
   }
 }
 
