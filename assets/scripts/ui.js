@@ -106,6 +106,15 @@ const updateLocationFailure = function () {
   console.log('This is update failure')
 }
 
+const createLocationSuccess = function () {
+  $('#addLocationModal').modal('hide')
+  $('#addLocation')[0].reset()
+}
+
+const createLocationFailure = function () {
+  console.log('This is a create failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -122,5 +131,7 @@ module.exports = {
   getLocationsDataSuccess,
   getLocationsDataFailure,
   updateLocationSuccess,
-  updateLocationFailure
+  updateLocationFailure,
+  createLocationSuccess,
+  createLocationFailure
 }
