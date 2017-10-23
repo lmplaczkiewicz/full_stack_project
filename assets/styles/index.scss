@@ -29,6 +29,18 @@ nav {
   position: fixed;
 }
 
+.locationHolder {
+  width: 80%;
+  margin: 25px 10%;
+}
+
+.locationGrid {
+  border: solid;
+  background-color: #C0C0C0;
+  height: 50px;
+  text-align: center;
+}
+
 .modal-content {
   width: 350px;
   position: relative;

@@ -1,19 +1,22 @@
 {{#each locations as |location|}}
 
- <!-- Developers, why are we using data-id and not just id? -->
-  <div>
-  <ul data-id="{{location.id}}">
-  <li><h1> <small>Address: {{location.address}}</small></h1></li>
-  <li><h2> <small>Business Type: {{location.business}}</small></h2></li>
-  <li><h2> <small>Insured Units: {{location.units}}</small></h2></li>
-  <li><h2> <small>Company: {{location.company}}</small></h2></li>
-  <li><h2> <small>Compliance Errors: {{location.compliance}}</small></h2></li>
-  <li><h2> <small>Inspection Date: {{location.inspection}}</small></h2></li>
-  <li><button data-id="{{location.id}}" class="removeButton btn btn-default">Remove Location</button></li>
-  <li><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton">
-    <button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">
-      Update Location
-    </button>
+  <table class="locationHolder" data-id="{{location.id}}">
+    <tr>
+      <td><h1> <small>Address: {{location.address}}</small></h1></td>
+      <td><h2> <small>Insured Units: {{location.units}}</small></h2></td>
+    </tr>
+    <tr>
+      <td><h2> <small>Company: {{location.company}}</small></h2></td>
+      <td><h2> <small>Business Type: {{location.business}}</small></h2></td>
+    </tr>
+    <tr>
+      <td><h2> <small>Next Inspection Date: {{location.inspection}}</small></h2></td>
+      <td><h2> <small>Compliance Errors: {{location.compliance}}</small></h2></td>
+    </tr>
+    <tr>
+      <td><button data-id="{{location.id}}" class="removeButton btn btn-default">Remove Location</button></td>
+      <td><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button></td></div>
+    </tr>
     <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
     <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -67,12 +70,12 @@
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
             <button data-id="{{location.id}}" type="submit" class="btn-primary updateFormButton modalConfirmButton" id="updateFormButton">Update Location</button>
           </div>
+          </div>
         </div>
       </div>
     </div>
-    </form>
-  </li>
-  </ul>
-  </div>
+  </form>
+</table>
+
 
 {{/each}}
