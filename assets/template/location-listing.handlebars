@@ -9,7 +9,7 @@
           <th scope="col">Business Type</th>
           <th scope="col">Inspection Date</th>
           <th scope="col">Compliance Errors</th>
-          <th scope="col"><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button data-id="{{location.id}}" type="button" class="asideButton btn-default" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button>
+          <th scope="col"><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button  data-id="{{location.id}}" type="button" class="updateHandleButton btn-primary" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button>
             <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
             <div class="modal fade" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -79,7 +79,7 @@
           <td scope="col">{{location.business}}</td>
           <td scope="col">{{location.inspection}}</td>
           <td scope="col">{{location.compliance}}</td>
-          <td scope="col"><button data-id="{{location.id}}" class="removeButton btn btn-default">Remove Location</button></td>
+          <td scope="col"><button data-id="{{location.id}}" class="removeButton btn-danger">Remove Location</button></td>
         </tr>
       </tbody>
   </table>
