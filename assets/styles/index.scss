@@ -1,2 +1,90 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$height: 150px;
+$width: 150px;
+$min-width: 450px;
+$min-height: 150px;
+$margin-left: 0 auto;
+$min-page-width: 1201px;
+
+body {
+  background-color:#556;
+  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a),
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+main {
+  height: 500px;
+  margin-top: 50px;
+}
+
+nav {
+  position: fixed;
+}
+
+.topRowButton {
+  float: left;
+}
+
+.topRowButton:hover,
+.topRowButton:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover),
+inset 0 -3.25em 0 0 var(--hover);
+  transform: translateY(-0.25em);
+ }
+
+ .frontButton:hover,
+ .frontButton:focus {
+   box-shadow: 0 0.5em 0.5em -0.4em var(--hover),
+ inset 0 -3.25em 0 0 var(--hover);
+   transform: translateY(-0.25em);
+  }
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+$colors: (
+  topRowButton: #C0C0C0,
+  frontButton: #C0C0C0
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: $color;
+    --hover: adjust-hue($color, 45deg);
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}

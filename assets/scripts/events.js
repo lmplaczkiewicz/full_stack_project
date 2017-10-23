@@ -5,12 +5,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
 
-const getLocationsData = function () {
-  api.show()
-    .then(ui.getLocationsDataSuccess)
-    .catch(ui.getLocationsDataFailure)
-}
-
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -24,7 +18,6 @@ const onSignIn = function (event) {
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
-    .then(getLocationsData())
     .catch(ui.signInFailure)
 }
 
@@ -73,7 +66,6 @@ const updateLocation = function (event) {
   const data = getFormFields(event.target)
   api.updateLocation(locationId, data)
     .then(ui.updateLocationSuccess)
-    .then(getLocationsData)
     .catch(ui.updateLocationFailure)
 }
 

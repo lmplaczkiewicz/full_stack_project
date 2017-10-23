@@ -16,12 +16,20 @@ const signUpFailure = function () {
   $('#overlayAlert').text('Unable to sign out')
 }
 
+const getLocationsData = function () {
+  api.show()
+    .then(getLocationsDataSuccess)
+    .catch(getLocationsDataFailure)
+}
+
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log(store.user)
   $('#signInModal').modal('hide')
   $('#sign-in')[0].reset()
   $('#underlay').show()
   $('#overlay').hide()
+  getLocationsData()
 }
 
 const signInFailure = function () {

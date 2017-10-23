@@ -14,22 +14,24 @@
     <body class="container-fluid">
 
       <div id="overlay">
-      <header class="mainPageHeader">
+      <div class="row">
+      <header class="mainPageHeader col-xs-6">
         <h1 class='titleHead'>Location Management</h1>
       </header>
-
-      <div class="overlayText">
-        <h1 class="overlayHead" id="overlayAlert">Create Account and Sign In for Database Access</h1>
       </div>
 
-      <div class='container signBox'>
-        <button type="button" class="btn-default overlaySignButton" data-toggle="modal" data-target="#signUpModal">
+      <div class="overlayText row">
+        <h1 class="overlayHead col-xs-6" id="overlayAlert">Create Account and Sign In for Database Access</h1>
+      </div>
+
+      <div class='container signBox row'>
+        <button type="button" class=" frontButton overlaySignButton" data-toggle="modal" data-target="#signUpModal">
           Create Account
         </button>
       </div>
 
-      <div class='container signBox'>
-          <button type="button" class="btn-default overlaySignInButton" data-toggle="modal" data-target="#signInModal">
+      <div class='container signBox row'>
+          <button type="button" class=" frontButton overlaySignInButton" data-toggle="modal" data-target="#signInModal">
             Sign In
           </button>
       </div>
@@ -83,19 +85,19 @@
       </div>
 
   <div id="underlay">
-  <nav class="col-xs-12">
+  <nav class="navbar navbar-inverse bg-inverse">
         <!-- Button trigger modal -->
 
     <form class='signOut' id="sign-out">
       <div class="button">
-        <button type="submit" class="topRowButton btn-default" data-toggle="" data-target="">
+        <button type="submit" class="topRowButton " data-toggle="" data-target="">
           Sign Out
         </button>
       </div>
     </form>
 
     <div class="button" id="changePasswordAccessButton">
-      <button type="button" class="topRowButton btn-default" data-toggle="modal" data-target="#changePasswordModal">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="#changePasswordModal">
         Change Password
       </button>
     </div>
@@ -122,17 +124,14 @@
       </div>
     </form>
 
-  </nav>
-
-  <aside>
     <div class="button" id="getLocationButton">
-      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="">
         Get Locations
       </button>
     </div>
 
     <div class="button" id="findLocationButton">
-      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#findLocationModal">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="#findLocationModal">
         Find Location
       </button>
     </div>
@@ -158,7 +157,7 @@
     </form>
 
     <div class="button" id="addLocationButton">
-      <button type="button" class="asideButton btn-default" data-toggle="modal" data-target="#addLocationModal">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="#addLocationModal">
         Add Location
       </button>
     </div>
@@ -200,8 +199,7 @@
       </div>
     </div>
     </form>
-
-  </aside>
+  </nav>
 
   <main>
     <div class="contentHead" id="userDisplay">
