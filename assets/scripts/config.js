@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'http://full-stack-api.herokuapp.com/'
+    production: 'https://full-stack-api.herokuapp.com'
   }
 }
 
