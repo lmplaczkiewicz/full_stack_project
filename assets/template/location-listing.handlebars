@@ -4,11 +4,11 @@
 <caption>{{location.address}}</caption>
       <thead>
         <tr>
-          <th scope="col">Insured Units</th>
+          <th scope="col">Insured Objects</th>
           <th scope="col">Company</th>
           <th scope="col">Business Type</th>
           <th scope="col">Inspection Date</th>
-          <th scope="col">Compliance Errors</th>
+          <th scope="col">Total Claims</th>
           <th scope="col"><div data-id="{{location.id}}" class="updateButton" id="updateHandleButton"><button  data-id="{{location.id}}" type="button" class="updateHandleButton btn-primary" data-toggle="modal" data-target="#updateLocationModal{{location.id}}">Update Location</button>
             <form data-id="{{location.id}}" class="dataAccess updateLocation" id="updateLocationId{{location.id}}">
             <div class="modal fade errorTarget" id="updateLocationModal{{location.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,8 +40,8 @@
                     </div>
 
                     <div class="form-group">
-                    <label>Units Insured</label>
-                    <input type="text" class="form-control" name="location[units]" id="unitUpdate" value="{{location.units}}">
+                    <label>Objects Insured</label>
+                    <input type="text" class="form-control" name="location[objects]" id="unitUpdate" value="{{location.objects}}">
                     </div>
 
                     <div class="form-group">
@@ -50,8 +50,8 @@
                     </div>
 
                     <div class="form-group">
-                    <label>Compliance Errors</label>
-                    <input type="text" class="form-control" name="location[compliance]" id="complianceUpdate" value="{{location.compliance}}">
+                    <label>Total Claims</label>
+                    <input type="text" class="form-control" name="location[claims]" id="complianceUpdate" value="{{location.claims}}">
                     </div>
 
                     <div class="form-group">
@@ -74,11 +74,11 @@
       </thead>
       <tbody>
         <tr>
-          <td scope="col">{{location.units}}</td>
+          <td scope="col">{{location.objects}}</td>
           <td scope="col">{{location.company}}</td>
           <td scope="col">{{location.business}}</td>
           <td scope="col">{{location.inspection}}</td>
-          <td scope="col">{{location.compliance}}</td>
+          <td scope="col">{{location.claims}}</td>
           <td scope="col"><button data-id="{{location.id}}" class="removeButton btn-danger">Remove Location</button></td>
         </tr>
       </tbody>
