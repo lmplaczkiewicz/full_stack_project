@@ -20,6 +20,8 @@
       </header>
       </div>
 
+        <div class="frontSuccess animated fadeInDown fadeOutUp col-xs-4 text-center" id="frontSuccess" data-notify-position="top-center"></div>
+
       <div class="overlayText text-center row">
         <h1 class="overlayHead col-xs-12" id="overlayAlert">Create Account/Sign In</h1>
       </div>
@@ -164,7 +166,7 @@
             <div id="errorFindLocation"></div>
             <div class="form-group">
             <label>Address</label>
-            <input type="text" class="form-control" name="locations[Id]" id="addressFind" placeholder="Enter address">
+            <input type="text" class="form-control" name="locations[Id]" id="addressFind" placeholder="Enter address" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -193,7 +195,7 @@
             <div id="errorAddLocation"></div>
             <div class="form-group">
             <label>Address</label>
-            <input type="text" class="form-control" name="location[address]" id="addressAdd" placeholder="Enter Address">
+            <input type="text" class="form-control" name="location[address]" id="addressAdd" placeholder="Enter Address" required>
             </div>
               <div class="form-group">
                 <label for="exampleSelect1">Business Type</label>
@@ -207,19 +209,19 @@
               </div>
               <div class="form-group">
               <label>Objects Insured</label>
-              <input type="text" class="form-control" name="location[objects]" id="unitAdd" placeholder="Enter Total Objects Insured">
+              <input type="text" class="form-control" name="location[objects]" id="unitAdd" placeholder="Enter Total Objects Insured" required>
               </div>
               <div class="form-group">
               <label>Company</label>
-              <input type="text" class="form-control" name="location[company]" id="companyAdd" placeholder="Enter Company Name">
+              <input type="text" class="form-control" name="location[company]" id="companyAdd" placeholder="Enter Company Name" required>
               </div>
               <div class="form-group">
               <label>Total Claims</label>
-              <input type="text" class="form-control" name="location[claims]" id="complianceAdd" placeholder="Enter Total Number of Claims">
+              <input type="text" class="form-control" name="location[claims]" id="complianceAdd" placeholder="Enter Total Number of Claims" required>
               </div>
               <div class="form-group">
               <label>Inspection Date</label>
-              <input type="date" class="form-control" name="location[inspection]" id="inspectionAdd" placeholder="Select Next Inspection Date">
+              <input type="date" class="form-control" name="location[inspection]" id="inspectionAdd" placeholder="Select Next Inspection Date" required>
               </div>
           </div>
           <div class="modal-footer">
@@ -255,19 +257,19 @@
             <div id="errorAddCompany"></div>
             <div class="form-group">
             <label>Company Name</label>
-            <input type="text" class="form-control" name="company[name]" id="companyNameAdd" placeholder="Enter Company Name">
+            <input type="text" class="form-control" name="company[name]" id="companyNameAdd" placeholder="Enter Company Name" required>
             </div>
               <div class="form-group">
               <label>Risk Manager</label>
-              <input type="text" class="form-control" name="company[manager]" id="managerAdd" placeholder="Enter Risk Manager Name">
+              <input type="text" class="form-control" name="company[manager]" id="managerAdd" placeholder="Enter Risk Manager Name" required>
               </div>
               <div class="form-group">
               <label>Enter Contact Number</label>
-              <input type="text" class="form-control" name="company[phone]" id="phoneAdd" placeholder="Enter Risk Manager Phone Number">
+              <input type="text" class="form-control" name="company[phone]" id="phoneAdd" placeholder="Enter Risk Manager Phone Number" required>
               </div>
               <div class="form-group">
               <label>Enter Contact Email</label>
-              <input type="text" class="form-control" name="company[email]" id="complianceAdd" placeholder="Enter Risk Manager Email">
+              <input type="text" class="form-control" name="company[email]" id="complianceAdd" placeholder="Enter Risk Manager Email" required>
               </div>
           </div>
           <div class="modal-footer">
@@ -279,6 +281,9 @@
     </div>
     </form>
   </nav>
+
+  <div class="uiError animated fadeInDown fadeOutUp col-xs-4 text-center" id="uiError" data-notify-position="top-center"></div>
+  <div class="uiSuccess animated fadeInDown fadeOutUp col-xs-4 text-center" id="uiSuccess" data-notify-position="top-center"></div>
 
   <div class="contentHead col-xs-12 text-center" id="userDisplayContainer">
     <h2 class="userMessages" id="userDisplay">Welcome to the Location Management System</h2>

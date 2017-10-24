@@ -10,6 +10,10 @@ const api = require('./api')
 const signUpSuccess = function (data) {
   $('#signUpModal').modal('hide')
   $('#sign-up')[0].reset()
+  $('#frontSuccess').addClass('alert alert-success').html('Account Created')
+  setTimeout(function () {
+    $('#frontSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const signUpFailure = function () {
@@ -45,17 +49,24 @@ const signOutSuccess = function () {
   $('#overlay').show()
   store.user = null
   $('#contentDisplay').empty()
+  $('#companyDisplay').empty()
   $('#userDisplay').text('Welcome to the Location Management System')
 }
 
 const signOutFailure = function () {
-  $('#userDisplay').text('Unable to sign out')
+  $('#uiError').addClass('alert alert-danger').html('Unable to Sign Out')
+  setTimeout(function () {
+    $('#uiError').removeClass('alert alert-danger').html('')
+  }, 1000)
 }
 
 const changePasswordSuccess = function (data) {
   $('#changePasswordModal').modal('hide')
   $('#change-password')[0].reset()
-  $('#userDisplay').text('Change password success')
+  $('#uiSuccess').addClass('alert alert-success').html('Password Changed')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const changePasswordFailure = function () {
@@ -73,11 +84,17 @@ const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('#contentDisplay').html(showLocationHtml)
   store.locations = data.locations
-  $('#userDisplay').text('Locations displayed below')
+  $('#uiSuccess').addClass('alert alert-success').html('Information displayed below')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const getLocationsFailure = function () {
-  $('#userDisplay').text('Unable to find locations')
+  $('#uiError').addClass('alert alert-danger').html('Unable to retrieve locations')
+  setTimeout(function () {
+    $('#uiError').removeClass('alert alert-danger').html('')
+  }, 1000)
 }
 
 const findLocationSuccess = function (data) {
@@ -85,7 +102,10 @@ const findLocationSuccess = function (data) {
   $('.content').html(showLocationHtml)
   $('#findLocationModal').modal('hide')
   $('#findLocation')[0].reset()
-  $('#userDisplay').text('Location displayed below')
+  $('#uiSuccess').addClass('alert alert-success').html('Information displayed below')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const findLocationFailure = function () {
@@ -104,7 +124,10 @@ const getLocationsDataSuccess = function (data) {
 }
 
 const getLocationsDataFailure = function () {
-  $('#userDisplay').text('Unable to connect to database')
+  $('#uiError').addClass('alert alert-danger').html('Unable to connect to database')
+  setTimeout(function () {
+    $('#uiError').removeClass('alert alert-danger').html('')
+  }, 1000)
 }
 
 const updateLocationSuccess = function (data) {
@@ -112,6 +135,10 @@ const updateLocationSuccess = function (data) {
   $('#userDisplay').text('Location Updated')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+  $('#uiSuccess').addClass('alert alert-success').html('Location Updated')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const updateLocationFailure = function () {
@@ -121,13 +148,17 @@ const updateLocationFailure = function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
       $('.errorUpdateLocation').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 500)
+    }, 1000)
+  }, 1000)
 }
 
 const createLocationSuccess = function () {
   $('#addLocationModal').modal('hide')
   $('#addLocation')[0].reset()
+  $('#uiSuccess').addClass('alert alert-success').html('Location Created')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const createLocationFailure = function () {
@@ -145,16 +176,26 @@ const getCompaniesSuccess = function (data) {
   const showCompanyHtml = showCompanyTemplate({ companies: data.companies })
   $('#companyDisplay').html(showCompanyHtml)
   store.locations = data.locations
-  $('#userDisplay').text('Companies displayed below')
+  $('#uiSuccess').addClass('alert alert-success').html('Information displayed below')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const getCompaniesFailure = function () {
-  $('#userDisplay').text('Unable to find companies')
+  $('#uiError').addClass('alert alert-danger').html('Unable to retrieve companies')
+  setTimeout(function () {
+    $('#uiError').removeClass('alert alert-danger').html('')
+  }, 1000)
 }
 
 const createCompanySuccess = function () {
   $('#addCompanyModal').modal('hide')
   $('#addCompany')[0].reset()
+  $('#uiSuccess').addClass('alert alert-success').html('Company Created')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const createCompanyFailure = function () {
@@ -179,7 +220,10 @@ const getCompaniesDataSuccess = function (data) {
 }
 
 const getCompaniesDataFailure = function () {
-  $('#userDisplay').text('Unable to connect to database')
+  $('#uiError').addClass('alert alert-danger').html('Database Connection Error')
+  setTimeout(function () {
+    $('#uiError').removeClass('alert alert-danger').html('')
+  }, 1000)
 }
 
 const updateCompanySuccess = function (data) {
@@ -187,17 +231,21 @@ const updateCompanySuccess = function (data) {
   $('#userDisplay').text('Company Updated')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+  $('#uiSuccess').addClass('alert alert-success').html('Company Updated')
+  setTimeout(function () {
+    $('#uiSuccess').removeClass('alert alert-success').html('')
+  }, 1000)
 }
 
 const updateCompanyFailure = function () {
   $('.errorTarget').addClass('shake')
-  $('.errorUpdateCompany').addClass('alert alert-danger').html('Create Company Failure')
+  $('.errorUpdateCompany').addClass('alert alert-danger').html('Update Company Failure')
   setTimeout(function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
       $('.errorUpdateCompany').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 500)
+    }, 1000)
+  }, 1000)
 }
 
 const signInSuccess = function (data) {
