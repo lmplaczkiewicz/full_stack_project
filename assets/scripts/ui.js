@@ -83,6 +83,7 @@ const changePasswordFailure = function () {
 const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('#contentDisplay').html(showLocationHtml)
+  $('#getLocationButton').hide()
   store.locations = data.locations
   if (store.locations.length === 0) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
@@ -109,6 +110,7 @@ const findLocationSuccess = function (data) {
   $('#contentDisplay').html(showLocationHtml)
   $('#findLocationModal').modal('hide')
   $('#findLocation')[0].reset()
+  $('#getLocationButton').show()
   if (store.locations.length === 0) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     setTimeout(function () {
