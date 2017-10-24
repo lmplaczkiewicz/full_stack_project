@@ -13,7 +13,7 @@ const signUpSuccess = function (data) {
   $('#frontSuccess').addClass('alert alert-success').html('Account Created')
   setTimeout(function () {
     $('#frontSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const signUpFailure = function () {
@@ -23,8 +23,8 @@ const signUpFailure = function () {
     $('#signUpModal').removeClass('shake')
     setTimeout(function () {
       $('#errorSignUp').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const getLocationsData = function () {
@@ -40,8 +40,8 @@ const signInFailure = function () {
     $('#signInModal').removeClass('shake')
     setTimeout(function () {
       $('#errorSignIn').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const signOutSuccess = function () {
@@ -57,7 +57,7 @@ const signOutFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to Sign Out')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const changePasswordSuccess = function (data) {
@@ -66,7 +66,7 @@ const changePasswordSuccess = function (data) {
   $('#uiSuccess').addClass('alert alert-success').html('Password Changed')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const changePasswordFailure = function () {
@@ -76,8 +76,8 @@ const changePasswordFailure = function () {
     $('#changePasswordModal').removeClass('shake')
     setTimeout(function () {
       $('#errorPasswordChange').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const getLocationsSuccess = function (data) {
@@ -86,15 +86,15 @@ const getLocationsSuccess = function (data) {
   $('#getLocationButton').hide()
   store.locations = data.locations
   if (store.locations.length === 0) {
-    $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
-    setTimeout(function () {
-      $('#uiWarning').removeClass('alert alert-warning').html('')
-    }, 1000)
+    // $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
+    // setTimeout(function () {
+    //   $('#uiWarning').removeClass('alert alert-warning').html('')
+    // }, 2000)
   } else {
     $('#uiSuccess').addClass('alert alert-success').html('Locations displayed below')
     setTimeout(function () {
       $('#uiSuccess').removeClass('alert alert-success').html('')
-    }, 1000)
+    }, 2000)
   }
 }
 
@@ -102,7 +102,7 @@ const getLocationsFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to retrieve locations')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const findLocationSuccess = function (data) {
@@ -115,12 +115,12 @@ const findLocationSuccess = function (data) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     setTimeout(function () {
       $('#uiWarning').removeClass('alert alert-warning').html('')
-    }, 1000)
+    }, 2000)
   } else {
     $('#uiSuccess').addClass('alert alert-success').html('Information displayed below')
     setTimeout(function () {
       $('#uiSuccess').removeClass('alert alert-success').html('')
-    }, 1000)
+    }, 2000)
   }
 }
 
@@ -131,8 +131,8 @@ const findLocationFailure = function () {
     $('#findLocationModal').removeClass('shake')
     setTimeout(function () {
       $('#errorFindLocation').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const getLocationsDataSuccess = function (data) {
@@ -143,7 +143,7 @@ const getLocationsDataFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to connect to database')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const updateLocationSuccess = function (data) {
@@ -154,7 +154,7 @@ const updateLocationSuccess = function (data) {
   $('#uiSuccess').addClass('alert alert-success').html('Location Updated')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const updateLocationFailure = function () {
@@ -164,8 +164,8 @@ const updateLocationFailure = function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
       $('.errorUpdateLocation').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const createLocationSuccess = function () {
@@ -174,7 +174,7 @@ const createLocationSuccess = function () {
   $('#uiSuccess').addClass('alert alert-success').html('Location Created')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const createLocationFailure = function () {
@@ -184,8 +184,8 @@ const createLocationFailure = function () {
     $('#addLocationModal').removeClass('shake')
     setTimeout(function () {
       $('#errorAddLocation').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const getCompaniesSuccess = function (data) {
@@ -193,15 +193,15 @@ const getCompaniesSuccess = function (data) {
   $('#companyDisplay').html(showCompanyHtml)
   store.companies = data.companies
   if (store.companies.length === 0) {
-    $('#uiCompWarning').addClass('alert alert-warning').html('Create a Company')
-    setTimeout(function () {
-      $('#uiCompWarning').removeClass('alert alert-warning').html('')
-    }, 1000)
+    // $('#uiCompWarning').addClass('alert alert-warning').html('Create a Company')
+    // setTimeout(function () {
+    //   $('#uiCompWarning').removeClass('alert alert-warning').html('')
+    // }, 2000)
   } else {
     $('#uiCompSuccess').addClass('alert alert-success').html('Companies displayed below')
     setTimeout(function () {
       $('#uiCompSuccess').removeClass('alert alert-success').html('')
-    }, 1000)
+    }, 2000)
   }
 }
 
@@ -209,7 +209,7 @@ const getCompaniesFailure = function () {
   $('#uiCompError').addClass('alert alert-danger').html('Unable to retrieve companies')
   setTimeout(function () {
     $('#uiCompError').removeClass('alert alert-danger').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const createCompanySuccess = function () {
@@ -218,7 +218,7 @@ const createCompanySuccess = function () {
   $('#uiCompSuccess').addClass('alert alert-success').html('Company Created')
   setTimeout(function () {
     $('#uiCompSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const createCompanyFailure = function () {
@@ -228,8 +228,8 @@ const createCompanyFailure = function () {
     $('#addCompanyModal').removeClass('shake')
     setTimeout(function () {
       $('#errorAddCompany').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const getCompaniesData = function () {
@@ -246,7 +246,7 @@ const getCompaniesDataFailure = function () {
   $('#uiCompError').addClass('alert alert-danger').html('Database Connection Error')
   setTimeout(function () {
     $('#uiCompError').removeClass('alert alert-danger').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const updateCompanySuccess = function (data) {
@@ -257,7 +257,7 @@ const updateCompanySuccess = function (data) {
   $('#uiCompSuccess').addClass('alert alert-success').html('Company Updated')
   setTimeout(function () {
     $('#uiCompSuccess').removeClass('alert alert-success').html('')
-  }, 1000)
+  }, 2000)
 }
 
 const updateCompanyFailure = function () {
@@ -267,8 +267,8 @@ const updateCompanyFailure = function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
       $('.errorUpdateCompany').removeClass('alert alert-danger').html('')
-    }, 1000)
-  }, 1000)
+    }, 2000)
+  }, 2000)
 }
 
 const signInSuccess = function (data) {
