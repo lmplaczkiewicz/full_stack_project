@@ -56,6 +56,11 @@ const getLocationsNoButton = function (event) {
     })
 }
 
+const findLocationAddButton = function () {
+  $('.removeButton').on('click', deleteLocation)
+  $('.updateButton').on('submit', updateLocation)
+}
+
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -87,11 +92,13 @@ const updateLocation = function (event) {
 }
 
 const singleLocation = function (data) {
+  console.log('Below is data')
+  console.log(data)
   for (let i = 0; i < store.locations.length; i++) {
-    if (parseInt(store.locations[i].id) === parseInt(data)) {
-      return data
+    if (store.locations[i].address === data) {
+      return store.locations[i].id
     } else {
-      console.log(store.locations[i].id)
+      console.log(store.locations[i].address)
       console.log('Error')
     }
   }
@@ -104,6 +111,7 @@ const findLocation = function (event) {
   // const userId = store.user.id
   api.find(locationId)
     .then(ui.findLocationSuccess)
+    .then(findLocationAddButton)
     .catch(ui.findLocationFailure)
 }
 

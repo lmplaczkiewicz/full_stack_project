@@ -6,14 +6,39 @@ const store = require('./store')
 const showLocationTemplate = require('../template/location-listing.handlebars')
 const api = require('./api')
 
+// const errorShake = function shakeForm (data) {
+//   let l = 20
+//   for (let i = 0; i <= 10; i++) {
+//     $(data).animate({
+//       'left': '+=' + (l = -l) + 'px',
+//       'right': '-=' + l + 'px'
+//     }, 50)
+//   }
+// }
+
+// function shakeModal(){
+//     $('#loginModal .modal-dialog').addClass('shake');
+//              $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+//              $('input[type="password"]').val('');
+//              setTimeout( function(){
+//                 $('#loginModal .modal-dialog').removeClass('shake');
+//     }, 500 );
+// }
+
 const signUpSuccess = function (data) {
   $('#signUpModal').modal('hide')
   $('#sign-up')[0].reset()
 }
 
 const signUpFailure = function () {
-  $('#sign-up')[0].reset()
-  $('#overlayAlert').text('Unable to sign out')
+  $('#signUpModal').addClass('shake')
+  $('#errorSignUp').addClass('alert alert-danger').html('Sign Up Failure')
+  setTimeout(function () {
+    $('#signUpModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorSignUp').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 2000)
 }
 
 const getLocationsData = function () {
@@ -23,8 +48,14 @@ const getLocationsData = function () {
 }
 
 const signInFailure = function () {
-  $('#sign-in')[0].reset()
-  $('#overlayAlert').text('Unable to sign in')
+  $('#signInModal').addClass('shake')
+  $('#errorSignIn').addClass('alert alert-danger').html('Sign In Failure')
+  setTimeout(function () {
+    $('#signInModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorSignIn').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 2000)
 }
 
 const signOutSuccess = function () {
@@ -32,6 +63,7 @@ const signOutSuccess = function () {
   $('#overlay').show()
   store.user = null
   $('#contentDisplay').empty()
+  $('#userDisplay').text('Welcome to the Location Management System')
 }
 
 const signOutFailure = function () {
@@ -45,8 +77,14 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function () {
-  $('#change-password')[0].reset()
-  $('#userDisplay').text('Unable to change password')
+  $('#changePasswordModal').addClass('shake')
+  $('#errorPasswordChange').addClass('alert alert-danger').html('Password Change Failure')
+  setTimeout(function () {
+    $('#changePasswordModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorPasswordChange').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 2000)
 }
 
 const getLocationsSuccess = function (data) {
@@ -69,17 +107,22 @@ const findLocationSuccess = function (data) {
 }
 
 const findLocationFailure = function () {
-  $('#userDisplay').text('Unable to find location')
+  $('#findLocationModal').addClass('shake')
+  $('#errorFindLocation').addClass('alert alert-danger').html('Find Location Failure')
+  setTimeout(function () {
+    $('#findLocationModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorFindLocation').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 2000)
 }
 
 const getLocationsDataSuccess = function (data) {
-  console.log('We got data?')
   store.locations = data.locations
-  console.log(store.locations)
 }
 
 const getLocationsDataFailure = function () {
-  $('#userDisplay').text('Unable to find user locations')
+  $('#userDisplay').text('Unable to connect to database')
 }
 
 const updateLocationSuccess = function (data) {
@@ -87,13 +130,10 @@ const updateLocationSuccess = function (data) {
   $('#userDisplay').text('Location Updated')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
-  console.log('location updated')
-  console.log('store.locations below')
-  console.log(store.locations)
 }
 
 const updateLocationFailure = function () {
-  console.log('This is update failure')
+  $('.error').addClass('alert alert-danger').html('Update Location Failure')
 }
 
 const createLocationSuccess = function () {
@@ -102,8 +142,21 @@ const createLocationSuccess = function () {
 }
 
 const createLocationFailure = function () {
-  console.log('This is a create failure')
+  $('#addLocationModal').addClass('shake')
+  $('#errorAddLocation').addClass('alert alert-danger').html('Create Location Failure')
+  setTimeout(function () {
+    $('#addLocationModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorAddLocation').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 2000)
 }
+// setTimeout(function () {
+//   $('#addLocationModal').removeClass('shake')
+// }, 500)
+// setTimeout(function () {
+//   $('#errorAddLocation').removeClass('alert alert-danger').html('')
+// }, 2000)
 
 const signInSuccess = function (data) {
   store.user = data.user
