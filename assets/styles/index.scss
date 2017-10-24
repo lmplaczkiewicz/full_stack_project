@@ -20,7 +20,7 @@ body {
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
-main {
+section {
   height: 500px;
   margin-top: 50px;
 }
@@ -32,6 +32,14 @@ nav {
 .content {
   width: 80%;
   margin: 25px 10%;
+}
+
+.contentDisplay {
+  float: left;
+}
+
+.companyDisplay {
+  float: right;
 }
 
 .modal-content {
