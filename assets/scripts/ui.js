@@ -37,8 +37,8 @@ const signUpFailure = function () {
     $('#signUpModal').removeClass('shake')
     setTimeout(function () {
       $('#errorSignUp').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 2000)
+    }, 1000)
+  }, 1000)
 }
 
 const getLocationsData = function () {
@@ -54,8 +54,8 @@ const signInFailure = function () {
     $('#signInModal').removeClass('shake')
     setTimeout(function () {
       $('#errorSignIn').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 2000)
+    }, 1000)
+  }, 1000)
 }
 
 const signOutSuccess = function () {
@@ -83,8 +83,8 @@ const changePasswordFailure = function () {
     $('#changePasswordModal').removeClass('shake')
     setTimeout(function () {
       $('#errorPasswordChange').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 2000)
+    }, 1000)
+  }, 1000)
 }
 
 const getLocationsSuccess = function (data) {
@@ -113,8 +113,8 @@ const findLocationFailure = function () {
     $('#findLocationModal').removeClass('shake')
     setTimeout(function () {
       $('#errorFindLocation').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 2000)
+    }, 1000)
+  }, 1000)
 }
 
 const getLocationsDataSuccess = function (data) {
@@ -133,7 +133,14 @@ const updateLocationSuccess = function (data) {
 }
 
 const updateLocationFailure = function () {
-  $('.error').addClass('alert alert-danger').html('Update Location Failure')
+  $('.errorTarget').addClass('shake')
+  $('.errorUpdateLocation').addClass('alert alert-danger').html('Create Location Failure')
+  setTimeout(function () {
+    $('.errorTarget').removeClass('shake')
+    setTimeout(function () {
+      $('.errorUpdateLocation').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 500)
 }
 
 const createLocationSuccess = function () {
@@ -148,15 +155,15 @@ const createLocationFailure = function () {
     $('#addLocationModal').removeClass('shake')
     setTimeout(function () {
       $('#errorAddLocation').removeClass('alert alert-danger').html('')
-    }, 500)
-  }, 2000)
+    }, 1000)
+  }, 1000)
 }
 // setTimeout(function () {
 //   $('#addLocationModal').removeClass('shake')
 // }, 500)
 // setTimeout(function () {
 //   $('#errorAddLocation').removeClass('alert alert-danger').html('')
-// }, 2000)
+// }, 1000)
 
 const signInSuccess = function (data) {
   store.user = data.user
