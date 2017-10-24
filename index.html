@@ -47,15 +47,15 @@
                 <div id="errorSignUp"></div>
                 <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="credentials[email]" id="email" placeholder="Enter Email">
+                <input type="text" class="form-control" name="credentials[email]" id="email" placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="credentials[password]" id="password" placeholder="Enter Password">
+                <input type="password" class="form-control" name="credentials[password]" id="password" placeholder="Enter Password" required>
                 </div>
                 <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" class="form-control" name="credentials[password_confirmation]" id="passwordConfirm" placeholder="Confirm Password">
+                <input type="password" class="form-control" name="credentials[password_confirmation]" id="passwordConfirm" placeholder="Confirm Password" required>
                 </div>
               </div>
               <div class="modal-footer">
@@ -79,11 +79,11 @@
                 <div id="errorSignIn"></div>
                 <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="credentials[email]" id="emailSignIn" placeholder="Enter Email">
+                <input type="text" class="form-control" name="credentials[email]" id="emailSignIn" placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="credentials[password]" id="passwordSignIn" placeholder="Enter Password">
+                <input type="password" class="form-control" name="credentials[password]" id="passwordSignIn" placeholder="Enter Password" required>
                 </div>
               </div>
               <div class="modal-footer">
@@ -125,11 +125,11 @@
               <div id="errorPasswordChange"></div>
               <div class="form-group">
               <label>Current Password</label>
-              <input type="password" class="form-control" name="passwords[old]" id="passwordOld" placeholder="Enter Current Password">
+              <input type="password" class="form-control" name="passwords[old]" id="passwordOld" placeholder="Enter Current Password" required>
               </div>
               <div class="form-group">
               <label>New Password</label>
-              <input type="password" class="form-control" name="passwords[new]" id="passwordNew" placeholder="Enter New Password">
+              <input type="password" class="form-control" name="passwords[new]" id="passwordNew" placeholder="Enter New Password" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -225,6 +225,54 @@
           <div class="modal-footer">
             <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
             <button type="submit" class="btn-primary modalConfirmButton" id="createButton">Create Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+<!-- Get comapnies -->
+    <div class="button" id="getCompanyButton">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="">
+        Get Companies
+      </button>
+    </div>
+
+    <div class="button" id="addCompanyButton">
+      <button type="button" class="topRowButton " data-toggle="modal" data-target="#addCompanyModal">
+        Add Company
+      </button>
+    </div>
+
+    <form class="dataAccess" id="addCompany">
+    <div class="modal fade" id="addCompanyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="signInModalLabel">Add Company</h3>
+          </div>
+          <div class="modal-body">
+            <div id="errorAddCompany"></div>
+            <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" class="form-control" name="company[name]" id="companyNameAdd" placeholder="Enter Company Name">
+            </div>
+              <div class="form-group">
+              <label>Risk Manager</label>
+              <input type="text" class="form-control" name="company[manager]" id="managerAdd" placeholder="Enter Risk Manager Name">
+              </div>
+              <div class="form-group">
+              <label>Enter Contact Number</label>
+              <input type="text" class="form-control" name="company[phone]" id="phoneAdd" placeholder="Enter Risk Manager Phone Number">
+              </div>
+              <div class="form-group">
+              <label>Enter Contact Email</label>
+              <input type="text" class="form-control" name="company[email]" id="complianceAdd" placeholder="Enter Risk Manager Email">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-danger modalCloseButton" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn-primary modalConfirmButton" id="createButton">Create Company</button>
           </div>
         </div>
       </div>

@@ -4,26 +4,8 @@
 
 const store = require('./store')
 const showLocationTemplate = require('../template/location-listing.handlebars')
+const showCompanyTemplate = require('../template/company-listing.handlebars')
 const api = require('./api')
-
-// const errorShake = function shakeForm (data) {
-//   let l = 20
-//   for (let i = 0; i <= 10; i++) {
-//     $(data).animate({
-//       'left': '+=' + (l = -l) + 'px',
-//       'right': '-=' + l + 'px'
-//     }, 50)
-//   }
-// }
-
-// function shakeModal(){
-//     $('#loginModal .modal-dialog').addClass('shake');
-//              $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
-//              $('input[type="password"]').val('');
-//              setTimeout( function(){
-//                 $('#loginModal .modal-dialog').removeClass('shake');
-//     }, 500 );
-// }
 
 const signUpSuccess = function (data) {
   $('#signUpModal').modal('hide')
@@ -158,22 +140,74 @@ const createLocationFailure = function () {
     }, 1000)
   }, 1000)
 }
-// setTimeout(function () {
-//   $('#addLocationModal').removeClass('shake')
-// }, 500)
-// setTimeout(function () {
-//   $('#errorAddLocation').removeClass('alert alert-danger').html('')
-// }, 1000)
+
+const getCompaniesSuccess = function (data) {
+  const showCompanyHtml = showCompanyTemplate({ companies: data.companies })
+  $('#companyDisplay').html(showCompanyHtml)
+  store.locations = data.locations
+  $('#userDisplay').text('Companies displayed below')
+}
+
+const getCompaniesFailure = function () {
+  $('#userDisplay').text('Unable to find companies')
+}
+
+const createCompanySuccess = function () {
+  $('#addCompanyModal').modal('hide')
+  $('#addCompany')[0].reset()
+}
+
+const createCompanyFailure = function () {
+  $('#addCompanyModal').addClass('shake')
+  $('#errorAddCompany').addClass('alert alert-danger').html('Create Company Failure')
+  setTimeout(function () {
+    $('#addCompanyModal').removeClass('shake')
+    setTimeout(function () {
+      $('#errorAddCompany').removeClass('alert alert-danger').html('')
+    }, 1000)
+  }, 1000)
+}
+
+const getCompaniesData = function () {
+  api.show()
+    .then(getCompaniesDataSuccess)
+    .catch(getCompaniesDataFailure)
+}
+
+const getCompaniesDataSuccess = function (data) {
+  store.locations = data.locations
+}
+
+const getCompaniesDataFailure = function () {
+  $('#userDisplay').text('Unable to connect to database')
+}
+
+const updateCompanySuccess = function (data) {
+  $('#companyDisplay').empty()
+  $('#userDisplay').text('Company Updated')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+}
+
+const updateCompanyFailure = function () {
+  $('.errorTarget').addClass('shake')
+  $('.errorUpdateCompany').addClass('alert alert-danger').html('Create Company Failure')
+  setTimeout(function () {
+    $('.errorTarget').removeClass('shake')
+    setTimeout(function () {
+      $('.errorUpdateCompany').removeClass('alert alert-danger').html('')
+    }, 500)
+  }, 500)
+}
 
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log(store.user)
   $('#signInModal').modal('hide')
   $('#sign-in')[0].reset()
   $('#underlay').show()
   $('#overlay').hide()
   getLocationsData()
-  return data
+  getCompaniesData()
 }
 
 module.exports = {
@@ -194,5 +228,11 @@ module.exports = {
   updateLocationSuccess,
   updateLocationFailure,
   createLocationSuccess,
-  createLocationFailure
+  createLocationFailure,
+  createCompanySuccess,
+  createCompanyFailure,
+  getCompaniesSuccess,
+  getCompaniesFailure,
+  updateCompanySuccess,
+  updateCompanyFailure
 }

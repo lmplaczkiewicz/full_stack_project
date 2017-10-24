@@ -61,19 +61,9 @@ const findLocationAddButton = function () {
   $('.updateButton').on('submit', updateLocation)
 }
 
-const onSignIn = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .then(getLocationsNoButton)
-    .catch(ui.signInFailure)
-}
-
 const deleteLocation = function (event) {
   event.preventDefault()
   const locationId = event.target.getAttribute('data-id')
-  console.log("We're about to delete book with id: ", locationId)
   api.removeLocation(locationId)
     .then(ui.deleteLocationSuccess)
     .then(getLocationsNoButton)
@@ -84,7 +74,6 @@ const updateLocation = function (event) {
   event.preventDefault()
   const locationId = event.target.getAttribute('data-id')
   const data = getFormFields(event.target)
-  console.log('We got to update location')
   api.updateLocation(locationId, data)
     .then(ui.updateLocationSuccess)
     .then(getLocationsNoButton)
@@ -92,14 +81,13 @@ const updateLocation = function (event) {
 }
 
 const singleLocation = function (data) {
-  console.log('Below is data')
-  console.log(data)
   for (let i = 0; i < store.locations.length; i++) {
     if (store.locations[i].address === data) {
       return store.locations[i].id
     } else {
-      console.log(store.locations[i].address)
-      console.log('Error')
+      // console.log(store.locations[i].address)
+      // console.log('Error')
+      return data
     }
   }
 }
@@ -125,6 +113,73 @@ const createLocation = function (event) {
     .catch(ui.createLocationFailure)
 }
 
+const getCompanies = function (event) {
+  event.preventDefault()
+  // const userId = store.user.id
+  api.showCompanies()
+    .then(ui.getCompaniesSuccess)
+    // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
+    .catch(ui.getCompaniesFailure)
+    .then(function () {
+      $('.removeCompanyButton').on('click', deleteCompany)
+    })
+    .then(function () {
+      $('.updateFormCompanyButton').on('submit', updateCompany)
+    })
+}
+
+const getCompaniesNoButton = function (event) {
+  api.showCompanies()
+    .then(ui.getCompaniesSuccess)
+    // Enables delete button function after loading of content, probably keep it on find location as well. Probably move it to it's own function
+    .catch(ui.getCompaniesFailure)
+    .then(function () {
+      $('.removeCompanyButton').on('click', deleteCompany)
+    })
+    .then(function () {
+      $('.updateFormCompanyButton').on('submit', updateCompany)
+    })
+}
+
+const deleteCompany = function (event) {
+  event.preventDefault()
+  const companyId = event.target.getAttribute('data-id')
+  api.removeCompany(companyId)
+    .then(ui.deleteCompanySuccess)
+    .then(getCompaniesNoButton)
+    .catch(ui.deleteCompanyFailure)
+}
+
+const updateCompany = function (event) {
+  event.preventDefault()
+  const companyId = event.target.getAttribute('data-id')
+  const data = getFormFields(event.target)
+  api.updateCompany(companyId, data)
+    .then(ui.updateCompanySuccess)
+    .then(getCompaniesNoButton)
+    .catch(ui.updateCompanyFailure)
+}
+
+const createCompany = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  // const userId = store.user.id
+  api.createCompany(data)
+    .then(ui.createCompanySuccess)
+    .then(getCompaniesNoButton)
+    .catch(ui.createCompanyFailure)
+}
+
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .then(getLocationsNoButton)
+    .then(getCompaniesNoButton)
+    .catch(ui.signInFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -133,6 +188,8 @@ const addHandlers = function () {
   $('#getLocationButton').on('click', getLocations)
   $('#findLocation').on('submit', findLocation)
   $('#addLocation').on('submit', createLocation)
+  $('#getCompanyButton').on('click', getCompanies)
+  $('#addCompany').on('submit', createCompany)
 }
 
 module.exports = {

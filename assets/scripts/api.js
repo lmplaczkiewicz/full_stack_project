@@ -40,7 +40,7 @@ const passwordChange = function (data) {
   })
 }
 
-const show = function (playerId) {
+const show = function () {
   return $.ajax({
     url: config.apiOrigin + '/locations',
     method: 'GET',
@@ -82,10 +82,50 @@ const removeLocation = function (data) {
 }
 
 const updateLocation = function (locationId, data) {
-  console.log(locationId)
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/locations/' + locationId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const showCompanies = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/companies',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createCompany = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/companies',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const removeCompany = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/companies/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateCompany = function (companyId, data) {
+  return $.ajax({
+    url: config.apiOrigin + '/companies/' + companyId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -103,5 +143,9 @@ module.exports = {
   find,
   create,
   removeLocation,
-  updateLocation
+  updateLocation,
+  showCompanies,
+  createCompany,
+  removeCompany,
+  updateCompany
 }

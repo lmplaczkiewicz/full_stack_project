@@ -39,7 +39,8 @@ nav {
 }
 
 .companyDisplay {
-  float: right;
+  float: left;
+  margin: 50px 25px 0px 200px;
 }
 
 .modal-content {
@@ -167,6 +168,10 @@ button {
 }
 
 .removeButton {
+  padding: 0;
+}
+
+.removeCompanyButton {
   padding: 0;
 }
 

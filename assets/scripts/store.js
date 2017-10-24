@@ -9,8 +9,12 @@ const locations = {
 const locationId = {
 }
 
+const companies = {
+}
+
 module.exports = {
   user,
   locations,
-  locationId
+  locationId,
+  companies
 }
