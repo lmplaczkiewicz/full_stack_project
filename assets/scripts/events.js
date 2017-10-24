@@ -85,9 +85,6 @@ const singleLocation = function (data) {
     if (store.locations[i].address === data) {
       return store.locations[i].id
     } else {
-      // console.log(store.locations[i].address)
-      // console.log('Error')
-      return data
     }
   }
 }
