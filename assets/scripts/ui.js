@@ -84,7 +84,7 @@ const getLocationsSuccess = function (data) {
   const showLocationHtml = showLocationTemplate({ locations: data.locations })
   $('#contentDisplay').html(showLocationHtml)
   store.locations = data.locations
-  if (store.locations === []) {
+  if (store.locations.length === 0) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     setTimeout(function () {
       $('#uiWarning').removeClass('alert alert-warning').html('')
@@ -109,7 +109,7 @@ const findLocationSuccess = function (data) {
   $('#contentDisplay').html(showLocationHtml)
   $('#findLocationModal').modal('hide')
   $('#findLocation')[0].reset()
-  if (store.locations === []) {
+  if (store.locations.length === 0) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     setTimeout(function () {
       $('#uiWarning').removeClass('alert alert-warning').html('')
@@ -190,7 +190,7 @@ const getCompaniesSuccess = function (data) {
   const showCompanyHtml = showCompanyTemplate({ companies: data.companies })
   $('#companyDisplay').html(showCompanyHtml)
   store.companies = data.companies
-  if (store.companies === []) {
+  if (store.companies.length === 0) {
     $('#uiCompWarning').addClass('alert alert-warning').html('Create a Company')
     setTimeout(function () {
       $('#uiCompWarning').removeClass('alert alert-warning').html('')
