@@ -29,5 +29,7 @@ Mon - Tues
 I changed up some display messages. Changed some column names. Added in a company table resource and the CRUD actions in relation to that additional table. I changed the styling to fit two table displays and added in bootstrap alerts for error/success messages. I worked through a few final bugs and some form updates and deployed the last iteration to production.
 
 User Stories:
+https://github.com/lmplaczkiewicz/full_stack_project/blob/master/User_Stories.md
 
 Wireframe:
+https://github.com/lmplaczkiewicz/full_stack_project/blob/master/Wireframe.png
