@@ -13,18 +13,19 @@ const signUpSuccess = function (data) {
   $('#frontSuccess').addClass('alert alert-success').html('Account Created')
   setTimeout(function () {
     $('#frontSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const signUpFailure = function () {
+  $('#sign-up')[0].reset()
   $('#signUpModal').addClass('shake')
-  $('#errorSignUp').addClass('alert alert-danger').html('Sign Up Failure')
+  $('#frontSuccess').addClass('alert alert-danger').html('Sign Up Failure')
   setTimeout(function () {
     $('#signUpModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorSignUp').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#frontSuccess').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const getLocationsData = function () {
@@ -34,14 +35,15 @@ const getLocationsData = function () {
 }
 
 const signInFailure = function () {
+  $('#sign-in')[0].reset()
   $('#signInModal').addClass('shake')
-  $('#errorSignIn').addClass('alert alert-danger').html('Sign In Failure')
+  $('#frontSuccess').addClass('alert alert-danger').html('Sign In Failure')
   setTimeout(function () {
     $('#signInModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorSignIn').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#frontSuccess').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const signOutSuccess = function () {
@@ -57,7 +59,7 @@ const signOutFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to Sign Out')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const changePasswordSuccess = function (data) {
@@ -66,18 +68,19 @@ const changePasswordSuccess = function (data) {
   $('#uiSuccess').addClass('alert alert-success').html('Password Changed')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const changePasswordFailure = function () {
+  $('#change-password')[0].reset()
   $('#changePasswordModal').addClass('shake')
-  $('#errorPasswordChange').addClass('alert alert-danger').html('Password Change Failure')
+  $('#modalError').addClass('alert alert-danger').html('Password Change Failure')
   setTimeout(function () {
     $('#changePasswordModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorPasswordChange').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const getLocationsSuccess = function (data) {
@@ -89,12 +92,12 @@ const getLocationsSuccess = function (data) {
     // $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     // setTimeout(function () {
     //   $('#uiWarning').removeClass('alert alert-warning').html('')
-    // }, 2000)
+    // }, 1500)
   } else {
     $('#uiSuccess').addClass('alert alert-success').html('Locations displayed below')
     setTimeout(function () {
       $('#uiSuccess').removeClass('alert alert-success').html('')
-    }, 2000)
+    }, 1500)
   }
 }
 
@@ -102,7 +105,7 @@ const getLocationsFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to retrieve locations')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const findLocationSuccess = function (data) {
@@ -115,24 +118,24 @@ const findLocationSuccess = function (data) {
     $('#uiWarning').addClass('alert alert-warning').html('Create a Location')
     setTimeout(function () {
       $('#uiWarning').removeClass('alert alert-warning').html('')
-    }, 2000)
+    }, 1500)
   } else {
     $('#uiSuccess').addClass('alert alert-success').html('Information displayed below')
     setTimeout(function () {
       $('#uiSuccess').removeClass('alert alert-success').html('')
-    }, 2000)
+    }, 1500)
   }
 }
 
 const findLocationFailure = function () {
   $('#findLocationModal').addClass('shake')
-  $('#errorFindLocation').addClass('alert alert-danger').html('Find Location Failure')
+  $('#modalError').addClass('alert alert-danger').html('Find Location Failure')
   setTimeout(function () {
     $('#findLocationModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorFindLocation').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const getLocationsDataSuccess = function (data) {
@@ -143,29 +146,28 @@ const getLocationsDataFailure = function () {
   $('#uiError').addClass('alert alert-danger').html('Unable to connect to database')
   setTimeout(function () {
     $('#uiError').removeClass('alert alert-danger').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const updateLocationSuccess = function (data) {
   $('#contentDisplay').empty()
-  $('#userDisplay').text('Location Updated')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   $('#uiSuccess').addClass('alert alert-success').html('Location Updated')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const updateLocationFailure = function () {
   $('.errorTarget').addClass('shake')
-  $('.errorUpdateLocation').addClass('alert alert-danger').html('Create Location Failure')
+  $('#modalError').addClass('alert alert-danger').html('Create Location Failure')
   setTimeout(function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
-      $('.errorUpdateLocation').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const createLocationSuccess = function () {
@@ -174,18 +176,18 @@ const createLocationSuccess = function () {
   $('#uiSuccess').addClass('alert alert-success').html('Location Created')
   setTimeout(function () {
     $('#uiSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const createLocationFailure = function () {
   $('#addLocationModal').addClass('shake')
-  $('#errorAddLocation').addClass('alert alert-danger').html('Create Location Failure')
+  $('#modalError').addClass('alert alert-danger').html('Create Location Failure')
   setTimeout(function () {
     $('#addLocationModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorAddLocation').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const getCompaniesSuccess = function (data) {
@@ -196,12 +198,12 @@ const getCompaniesSuccess = function (data) {
     // $('#uiCompWarning').addClass('alert alert-warning').html('Create a Company')
     // setTimeout(function () {
     //   $('#uiCompWarning').removeClass('alert alert-warning').html('')
-    // }, 2000)
+    // }, 1500)
   } else {
     $('#uiCompSuccess').addClass('alert alert-success').html('Companies displayed below')
     setTimeout(function () {
       $('#uiCompSuccess').removeClass('alert alert-success').html('')
-    }, 2000)
+    }, 1500)
   }
 }
 
@@ -209,7 +211,7 @@ const getCompaniesFailure = function () {
   $('#uiCompError').addClass('alert alert-danger').html('Unable to retrieve companies')
   setTimeout(function () {
     $('#uiCompError').removeClass('alert alert-danger').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const createCompanySuccess = function () {
@@ -218,18 +220,18 @@ const createCompanySuccess = function () {
   $('#uiCompSuccess').addClass('alert alert-success').html('Company Created')
   setTimeout(function () {
     $('#uiCompSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const createCompanyFailure = function () {
   $('#addCompanyModal').addClass('shake')
-  $('#errorAddCompany').addClass('alert alert-danger').html('Create Company Failure')
+  $('#modalError').addClass('alert alert-danger').html('Create Company Failure')
   setTimeout(function () {
     $('#addCompanyModal').removeClass('shake')
     setTimeout(function () {
-      $('#errorAddCompany').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const getCompaniesData = function () {
@@ -246,29 +248,28 @@ const getCompaniesDataFailure = function () {
   $('#uiCompError').addClass('alert alert-danger').html('Database Connection Error')
   setTimeout(function () {
     $('#uiCompError').removeClass('alert alert-danger').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const updateCompanySuccess = function (data) {
   $('#companyDisplay').empty()
-  $('#userDisplay').text('Company Updated')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   $('#uiCompSuccess').addClass('alert alert-success').html('Company Updated')
   setTimeout(function () {
     $('#uiCompSuccess').removeClass('alert alert-success').html('')
-  }, 2000)
+  }, 1500)
 }
 
 const updateCompanyFailure = function () {
   $('.errorTarget').addClass('shake')
-  $('.errorUpdateCompany').addClass('alert alert-danger').html('Update Company Failure')
+  $('#modalError').addClass('alert alert-danger').html('Update Company Failure')
   setTimeout(function () {
     $('.errorTarget').removeClass('shake')
     setTimeout(function () {
-      $('.errorUpdateCompany').removeClass('alert alert-danger').html('')
-    }, 2000)
-  }, 2000)
+      $('#modalError').removeClass('alert alert-danger').html('')
+    }, 1500)
+  }, 1500)
 }
 
 const signInSuccess = function (data) {

@@ -49,7 +49,7 @@
                 <div id="errorSignUp"></div>
                 <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="credentials[email]" id="email" placeholder="Enter Email" required>
+                <input type="email" class="form-control" name="credentials[email]" id="email" placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
                 <label>Password</label>
@@ -81,7 +81,7 @@
                 <div id="errorSignIn"></div>
                 <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="credentials[email]" id="emailSignIn" placeholder="Enter Email" required>
+                <input type="email" class="form-control" name="credentials[email]" id="emailSignIn" placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
                 <label>Password</label>
@@ -145,7 +145,7 @@
 
     <div class="button" id="getLocationButton">
       <button type="button" class="topRowButton " data-toggle="modal" data-target="">
-        Get Locations
+        Display All Locations
       </button>
     </div>
 
@@ -160,12 +160,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title" id="signInModalLabel">Find Location</h3>
+            <h3 class="modal-title" id="signInModalLabel">Search Your Locations</h3>
           </div>
           <div class="modal-body">
             <div id="errorFindLocation"></div>
             <div class="form-group">
-            <label>Address</label>
+            <label>Location Address</label>
             <input type="text" class="form-control" name="locations[Id]" id="addressFind" placeholder="Enter address" required>
             </div>
           </div>
@@ -209,7 +209,7 @@
               </div>
               <div class="form-group">
               <label>Objects Insured</label>
-              <input type="text" class="form-control" name="location[objects]" id="unitAdd" placeholder="Enter Total Objects Insured" required>
+              <input type="number" min="0" step="1" class="form-control" name="location[objects]" id="unitAdd" placeholder="Enter Total Objects Insured" required>
               </div>
               <div class="form-group">
               <label>Company</label>
@@ -217,11 +217,11 @@
               </div>
               <div class="form-group">
               <label>Total Claims</label>
-              <input type="text" class="form-control" name="location[claims]" id="complianceAdd" placeholder="Enter Total Number of Claims" required>
+              <input type="number" min="0" step="1" class="form-control" name="location[claims]" id="complianceAdd" placeholder="Enter Total Number of Claims" required>
               </div>
               <div class="form-group">
               <label>Inspection Date</label>
-              <input type="date" class="form-control" name="location[inspection]" id="inspectionAdd" placeholder="Select Next Inspection Date" required>
+              <input pattern="\d{4}-\d{1,2}-\d{1,2}" type="date" class="form-control" name="location[inspection]" id="inspectionAdd" placeholder="YYYY-MM-DD" required>
               </div>
           </div>
           <div class="modal-footer">
@@ -269,7 +269,7 @@
               </div>
               <div class="form-group">
               <label>Enter Contact Email</label>
-              <input type="text" class="form-control" name="company[email]" id="complianceAdd" placeholder="Enter Risk Manager Email" required>
+              <input type="email" class="form-control" name="company[email]" id="complianceAdd" placeholder="Enter Risk Manager Email" required>
               </div>
           </div>
           <div class="modal-footer">
@@ -282,12 +282,15 @@
     </form>
   </nav>
 
-  <div class="uiError animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiError" data-notify-position="top-left"></div>
-  <div class="uiSuccess animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiSuccess" data-notify-position="top-left"></div>
-  <div class="uiWarning animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiWarning" data-notify-position="top-left"></div>
-  <div class="uiCompError animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiCompanyError" data-notify-position="top-right"></div>
-  <div class="uiCompSuccess animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiCompSuccess" data-notify-position="top-right"></div>
-  <div class="uiCompWarning animated fadeInDown fadeOutUp col-xs-3 text-center" id="uiCompWarning" data-notify-position="top-right"></div>
+  <div class="uiError animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiError" data-notify-position="top-left"></div>
+  <div class="uiSuccess animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiSuccess" data-notify-position="top-left"></div>
+  <div class="uiWarning animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiWarning" data-notify-position="top-left"></div>
+
+  <div class="modalError animated fadeInDown fadeOutUp col-xs-1 text-center" id="modalError" data-notify-position="top-center"></div>
+
+  <div class="uiCompError animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiCompanyError" data-notify-position="top-right"></div>
+  <div class="uiCompSuccess animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiCompSuccess" data-notify-position="top-right"></div>
+  <div class="uiCompWarning animated fadeInDown fadeOutUp col-xs-1 text-center" id="uiCompWarning" data-notify-position="top-right"></div>
 
   <div class="contentHead col-xs-12 text-center" id="userDisplayContainer">
     <h2 class="userMessages" id="userDisplay">Welcome to the Location Management System</h2>

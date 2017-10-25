@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                     <label>Objects Insured</label>
-                    <input type="text" class="form-control" name="location[objects]" id="unitUpdate" value="{{location.objects}}" required>
+                    <input type="number" min="0" step="1" class="form-control" name="location[objects]" id="unitUpdate" value="{{location.objects}}" required>
                     </div>
 
                     <div class="form-group">
@@ -51,12 +51,12 @@
 
                     <div class="form-group">
                     <label>Total Claims</label>
-                    <input type="text" class="form-control" name="location[claims]" id="complianceUpdate" value="{{location.claims}}" required>
+                    <input type="number" min="0" step="1" class="form-control" name="location[claims]" id="complianceUpdate" value="{{location.claims}}" required>
                     </div>
 
                     <div class="form-group">
                     <label>Inspection Date</label>
-                    <input type="date" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}" required>
+                    <input pattern="\d{4}-\d{1,2}-\d{1,2}" type="date" class="form-control" name="location[inspection]" id="inspectionUpdate" value="{{location.inspection}}" required>
                     </div>
 
                   <div class="modal-footer">
